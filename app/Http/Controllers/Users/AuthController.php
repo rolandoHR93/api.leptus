@@ -67,4 +67,18 @@ class AuthController extends Controller
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
 		}
 	}
+
+    // this method signs out users by removing tokens
+    public function signout()
+    {
+        try {
+            auth()->user()->tokens()->delete();
+
+            return [
+                'message' => 'Tokens Revoked'
+            ];
+        }catch (Exception $e) {
+            return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+        }
+    }
 }
