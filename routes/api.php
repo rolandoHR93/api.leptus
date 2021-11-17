@@ -19,14 +19,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::prefix('v1')->group(function () {
-
-	Route::get('/', function(){
-		return response()->json('--- Bienvenido al API 👍 ---', 200);
-	});
-
-	Route::prefix('usuarios')
-		->group(base_path('routes/modulos/usuario.php'));
-
-
+Route::get('/', function(){
+	return response()->json('--- Bienvenido al API 👍 ---', 200);
 });
+
+Route::prefix('usuarios')
+	->group(base_path('routes/modulos/usuario.php'));
