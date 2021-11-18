@@ -54,6 +54,7 @@ class AuthController extends Controller
 			return response()->json([
 				'access_token' => $token,
 				'token_type' => 'Bearer',
+                'user' => $user
 			]);
 		}catch (Exception $e) {
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
