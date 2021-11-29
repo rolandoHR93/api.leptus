@@ -16,9 +16,9 @@ class CreateUsersGruposTable extends Migration
         Schema::create('leptus.users_grupos', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('users_id');
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('users_id')->references('id')->on('leptus.users');
             $table->unsignedInteger('grupos_id');
-            $table->foreign('grupos_id')->references('id')->on('Grupos');
+            $table->foreign('grupos_id')->references('id')->on('leptus.Grupos');
         });
     }
 
