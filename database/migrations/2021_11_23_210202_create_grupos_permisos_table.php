@@ -13,7 +13,7 @@ class CreateGruposPermisosTable extends Migration
      */
     public function up()
     {
-        Schema::create('grupos_permisos', function (Blueprint $table) {
+        Schema::create('leptus.grupos_permisos', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('grupos_id');
             $table->foreign('grupos_id')->references('id')->on('Grupos');

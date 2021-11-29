@@ -13,7 +13,7 @@ class CreateUsersRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('users_roles', function (Blueprint $table) {
+        Schema::create('leptus.users_roles', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('users_id');
             $table->foreign('users_id')->references('id')->on('users');

@@ -13,7 +13,7 @@ class CreatePermisosTable extends Migration
      */
     public function up()
     {
-        Schema::create('Permisos', function (Blueprint $table) {
+        Schema::create('leptus.Permisos', function (Blueprint $table) {
             $table->id();
             $table->string('descripcion',255);
             $table->string('nombre_clave',255);
