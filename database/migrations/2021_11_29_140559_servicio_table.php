@@ -35,6 +35,6 @@ class ServicioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('leptus.servicio');
+        Schema::dropIfExists('leptus.servicios');
     }
 }
