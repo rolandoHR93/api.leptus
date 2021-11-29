@@ -13,7 +13,7 @@ class ServicioTable extends Migration
      */
     public function up()
     {
-        Schema::create('leptus.servicio', function (Blueprint $table) {
+        Schema::create('leptus.servicios', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_servicio', 255);
             $table->string('descripcion', 255);

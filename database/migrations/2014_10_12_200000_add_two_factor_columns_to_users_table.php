@@ -13,15 +13,17 @@ class AddTwoFactorColumnsToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('leptus.users', function (Blueprint $table) {
-            $table->text('two_factor_secret')
-                    ->after('password')
-                    ->nullable();
+        $schemma= env('DB_SCHEMA');
 
-            $table->text('two_factor_recovery_codes')
-                    ->after('two_factor_secret')
-                    ->nullable();
-        });
+        // Schema::table($schemma.'.users', function (Blueprint $table) {
+        //     $table->text('two_factor_secret')
+        //             ->after('password')
+        //             ->nullable();
+
+        //     $table->text('two_factor_recovery_codes')
+        //             ->after('two_factor_secret')
+        //             ->nullable();
+        // });
     }
 
     /**
@@ -31,8 +33,8 @@ class AddTwoFactorColumnsToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('leptus.users', function (Blueprint $table) {
-            $table->dropColumn('two_factor_secret', 'two_factor_recovery_codes');
-        });
+        // Schema::table('leptus.users', function (Blueprint $table) {
+        //     $table->dropColumn('two_factor_secret', 'two_factor_recovery_codes');
+        // });
     }
 }

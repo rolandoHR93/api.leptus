@@ -13,7 +13,7 @@ class GruposervicioTable extends Migration
      */
     public function up()
     {
-        Schema::create('leptus.grupoServicio', function (Blueprint $table) {
+        Schema::create('leptus.grupoServicios', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_grupo', 255);
             $table->string('descripcion', 255);
