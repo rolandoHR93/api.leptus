@@ -24,5 +24,5 @@ Route::prefix('auth')
 Route::prefix('usuarios')
 	->group(base_path('routes/modulos/usuario.php'));
 
-Route::prefix('serviciosSofware')
+Route::prefix('serviciosSoftware')
 	->group(base_path('routes/modulos/grupoServicio.php'));
