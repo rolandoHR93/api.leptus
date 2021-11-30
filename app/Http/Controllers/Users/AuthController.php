@@ -4,14 +4,21 @@ namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use App\Repositories\AuthRepository;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+
+    protected $authRepository;
+
+    public function __construct(AuthRepository $authRepository)
+    {
+        $this->authRepository = $authRepository;
+    }
 
 	public function register(Request $request){
 		try {
@@ -21,14 +28,10 @@ class AuthController extends Controller
 				'password' => 'required|string|min:6',
 			]);
 
-			$user = User::create([
-				'nombres'  => $validateData['nombres'],
-				'email' => $validateData['email'],
-				'password' => Hash::make($validateData['password']),
-			]);
+            $respuesta = $this->authRepository->register($request->all());
 
 			// ** Crear Token de acceso Personal para el usuario
-			$token = $user->createToken('auth_token')->plainTextToken;
+			$token = $respuesta->createToken('auth_token')->plainTextToken;
 
 			return response()->json([
 				'access_token' => $token,
@@ -73,11 +76,10 @@ class AuthController extends Controller
     public function signout()
     {
         try {
-            auth()->user()->tokens()->delete();
 
-            return [
-                'message' => 'Tokens Revoked'
-            ];
+            $respuesta =  $this->authRepository->signout();
+
+            return $respuesta;
         }catch (Exception $e) {
             return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
         }
