@@ -15,8 +15,8 @@ class CreateUsersTable extends Migration
     {
         Schema::create('leptus.users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('last_name')->nullable();
+            $table->string('nombres');
+            $table->string('apellidos')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
