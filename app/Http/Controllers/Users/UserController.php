@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Symfony\Component\HttpFoundation\Response;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;

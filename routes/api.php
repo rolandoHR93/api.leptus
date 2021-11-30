@@ -18,6 +18,9 @@ Route::get('/', function(){
 	return response()->json('--- Bienvenido al API 👍 ---', 200);
 });
 
+Route::prefix('auth')
+	->group(base_path('routes/modulos/authRoute.php'));
+
 Route::prefix('usuarios')
 	->group(base_path('routes/modulos/usuario.php'));
 
