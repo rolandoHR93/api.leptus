@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
 use App\Repositories\AuthRepository;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Exception;
-use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -46,18 +46,21 @@ class AuthController extends Controller
 
 	public function login(Request $request){
 		try {
-			if(!Auth::attempt($request->only('email', 'password'))){
-				return response()->json([
-					'message' => 'Invalid login details'
-				], 401);
-			}
-			$user = User::where('email', $request['email'])->firstOrFail();
-			$token = $user->createToken('auth_token')->plainTextToken;
+
+            if(!Auth::attempt($request->only('email', 'password'))){
+                return response()->json([
+                    'message' => 'Invalid login details'
+                ], 401);
+            }
+
+            $respuesta = $this->authRepository->login($request);
+
+			$token = $respuesta->createToken('auth_token')->plainTextToken;
 
 			return response()->json([
 				'access_token' => $token,
 				'token_type' => 'Bearer',
-                'user' => $user
+                'user' => $respuesta
 			]);
 		}catch (Exception $e) {
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);

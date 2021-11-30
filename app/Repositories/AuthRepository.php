@@ -18,10 +18,12 @@ class AuthRepository implements AuthInterface {
         return $user;
     }
 
-    public function login(array $data){
-        $resultados = User::all();
+    public function login(object $data){
 
-        return $resultados;
+
+        $user = User::where('email', $data['email'])->firstOrFail();
+
+        return $user;
     }
 
     public function signout(){
