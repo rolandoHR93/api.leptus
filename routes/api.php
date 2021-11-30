@@ -25,3 +25,6 @@ Route::get('/', function(){
 
 Route::prefix('usuarios')
 	->group(base_path('routes/modulos/usuario.php'));
+
+Route::prefix('serviciosSofware')
+	->group(base_path('routes/modulos/grupoServicio.php'));
