@@ -2,6 +2,7 @@
 namespace App\Repositories;
 
 use App\Models\GrupoServicios;
+use stdClass;
 use DB;
 
 class GrupoServiciosRepository implements GrupoServiciosInterface {
@@ -26,7 +27,68 @@ class GrupoServiciosRepository implements GrupoServiciosInterface {
                     order by 1';
 
         $resultados = DB::select($prequery);
-        return $resultados;
+
+        $datosProcesados = $this->procesarDatosJSon( $resultados);
+
+        return $datosProcesados;
+    }
+
+    private function procesarDatosJSon( $resultados): array
+    {
+
+        $grouped = array();
+        foreach ($resultados as $dato) {
+            if(!array_key_exists($dato->nombre_grupo, $grouped)) {
+                $newObject = new stdClass();
+
+                $newObject->grupo_id = $dato->grupo_id;
+                $newObject->nombre_grupo = $dato->nombre_grupo;
+                $newObject->precio = $dato->precio;
+                $newObject->servicios = array();
+
+                $grouped[$dato->nombre_grupo] = $newObject;
+            }
+            $taskObject = new stdClass();
+
+            $taskObject->id = $dato->id;
+            $taskObject->nombre_modulo = $dato->nombre_modulo;
+            $taskObject->descripcion_modulo = $dato->descripcion_modulo;
+
+            $grouped[$dato->nombre_grupo]->servicios[] = $taskObject;
+            // $newJsArr[$dato->grupo_id][] = ["id" => $dato->id, "descripcion_servicio" => $dato->descripcion_servicio];
+        }
+
+        $array = array();
+
+        // $array[] = array("id" => 1, "items" => array(["nombre" => "test", "precio" => "145"],
+        // ["nombre" => "test 2", "precio" => "2222"]));
+        // $array[] = array("id" => 2, "items" => array("nombre" => "test", "precio" => "145"));
+        // $array[] = array("id" => 3, "items" => array("nombre" => "test", "precio" => "145"));
+        // foreach ($resultados as $dato) {
+        //     if(!array_search($dato->grupo_id, array_column($array, 'grupo_id'))){
+
+        //         $array[] = array("grupo_id" => $dato->grupo_id);
+        //         dd(!array_search($dato->grupo_id, array_column($array, 'grupo_id')));
+
+        //     }
+        //     // if(!array_search($dato->nombre_grupo, $grouped)) {
+        //     //     $array[] = array("nombre_grupo" => $dato->nombre_grupo);
+        //     // }
+        // }
+
+        return $grouped;
+    }
+
+    function convertObjectToArray($data) {
+        if (is_object($data)) {
+            $data = get_object_vars($data);
+        }
+
+        if (is_array($data)) {
+            return array_map(__FUNCTION__, $data);
+        }
+
+        return $data;
     }
 }
 
