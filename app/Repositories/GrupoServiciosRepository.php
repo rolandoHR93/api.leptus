@@ -11,11 +11,11 @@ class GrupoServiciosRepository implements GrupoServiciosInterface {
         $prequery = 'SELECT	a.id,
                     b.id Grupo_Id,
                     b.nombre_grupo,
-                    b.descripcion Descripcion_Servicio,
+                    b.descripcion Descripcion_Modulo,
                     b.Meses,
                     B.precio,
                     c.Nombre_Servicio Nombre_Modulo,
-                    c.Descripcion Descripcion_Modulo,
+                    c.Descripcion Descripcion_Servicio,
                     sum(c.precio) over (partition by b.id order by a ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)* Meses Precio_Regular,
                     sum(c.precio) over (partition by b.id order by a ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)* Meses - B.precio Precio_Ahorro,
                     (1 - round( CAST(float8 (B.precio/(sum(c.precio) over (partition by b.id order by a ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)* Meses))as numeric), 2))*100 Precio_Ahorro_Porcentaje
@@ -45,6 +45,7 @@ class GrupoServiciosRepository implements GrupoServiciosInterface {
                 $newObject->grupo_id = $dato->grupo_id;
                 $newObject->nombre_grupo = $dato->nombre_grupo;
                 $newObject->precio = $dato->precio;
+                $newObject->descripcion_modulo = $dato->descripcion_modulo;
                 $newObject->servicios = array();
 
                 $grouped[$dato->nombre_grupo] = $newObject;
