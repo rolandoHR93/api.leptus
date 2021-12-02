@@ -36,7 +36,7 @@ class CreateRepositoryCommand extends Command
 
     /**
      * Execute the console command.
-     *
+     * ☼•⁞⁞∞™©Ωπβαµ∞
      * @return int
      */
     public function handle()
@@ -46,6 +46,8 @@ class CreateRepositoryCommand extends Command
         if ($viewComposer === '' || is_null($viewComposer) || empty($viewComposer)) {
             return $this->error('Composer Name Invalid..!');
         }
+
+        $viewComposer = $viewComposer.'Repository';
 
         $contents= $this->generateContentFileRepository($viewComposer);
 
@@ -58,18 +60,18 @@ class CreateRepositoryCommand extends Command
 
             if($this->files->isDirectory($composerDir)){
                 if($this->files->isFile($file))
-                    return $this->error($viewComposer.' File Already exists!');
+                    return $this->error($viewComposer.'X - File Already exists!');
 
                 if(!$this->files->put($file, $contents))
-                    return $this->error('Something went wrong!');
-                $this->info("$viewComposer generated!");
+                    return $this->error('X - Something went wrong!');
+                $this->info("•••• $viewComposer generated ‼‼‼‼");
             }
             else{
                 $this->files->makeDirectory($composerDir, 0777, true, true);
 
                 if(!$this->files->put($file, $contents))
-                    return $this->error('Something went wrong!');
-                $this->info("$viewComposer generated!");
+                    return $this->error('X - Something went wrong!');
+                $this->info("•••• $viewComposer generated ‼‼‼‼");
             }
 
         }
