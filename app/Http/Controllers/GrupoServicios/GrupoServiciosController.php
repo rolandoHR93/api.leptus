@@ -19,9 +19,10 @@ class GrupoServiciosController extends Controller
     }
 
     public function lista(int $meses, string $key){
-		try {
-            if($key != 'iT3BnOENtV30pxRDadZ99e43wbDL4NA9')
+
+        if($key != 'iT3BnOENtV30pxRDadZ99e43wbDL4NA9')
                 abort(404);
+		try {
             $resultados = $this->grupoRepository->lista($meses);
 			return response()->json($resultados);
 		}

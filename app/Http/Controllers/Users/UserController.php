@@ -17,7 +17,9 @@ class UserController extends Controller
         $this->userRepository = $userRepository;
     }
 
-	public function lista(){
+	public function lista(string $key){
+        if($key != 'iT3BnOENtV30pxRDadZ99e43wbDL4NA9')
+                abort(404);
 		try {
             $usuarios =  $this->userRepository->lista();
 			return response()->json($usuarios);
