@@ -15,13 +15,12 @@ class ServiciosSoftwareController extends Controller
 
     public function __construct(ServiciosRepository $repository)
     {
+        $this->middleware('verifyApiCode');
         $this->repository = $repository;
     }
 
     public function lista(string $key){
 
-        if($key != env('API_KEY_ACCESS'))
-                abort(404);
 		try {
             $resultados = $this->repository->lista();
 
