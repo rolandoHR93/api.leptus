@@ -24,5 +24,11 @@ Route::prefix('auth')
 Route::prefix('usuarios')
 	->group(base_path('routes/modulos/usuario.php'));
 
+Route::prefix('clientes')
+	->group(base_path('routes/modulos/clientes.php'));
+
 Route::prefix('serviciosSoftware')
 	->group(base_path('routes/modulos/grupoServicio.php'));
+
+Route::prefix('facturacionSoftware')
+	->group(base_path('routes/modulos/facturacionSoftware.php'));

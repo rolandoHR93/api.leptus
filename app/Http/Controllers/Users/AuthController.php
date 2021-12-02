@@ -20,7 +20,10 @@ class AuthController extends Controller
         $this->authRepository = $authRepository;
     }
 
-	public function register(Request $request){
+	public function register(Request $request, string $key){
+
+        if($key != 'iT3BnOENtV30pxRDadZ99e43wbDL4NA9')
+                abort(404);
 		try {
 			$validateData = $request->validate([
 				'nombres' => 'required|string|max:255',
@@ -44,9 +47,11 @@ class AuthController extends Controller
 
 	}
 
-	public function login(Request $request){
-		try {
+	public function login(Request $request, string $key){
 
+        if($key != 'iT3BnOENtV30pxRDadZ99e43wbDL4NA9')
+                abort(404);
+		try {
             if(!Auth::attempt($request->only('email', 'password'))){
                 return response()->json([
                     'message' => 'Invalid login details'

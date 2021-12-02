@@ -1,11 +1,11 @@
 <?php
 
 use App\Http\Controllers\Users\AuthController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
-Route::post("/register",  [AuthController::class, 'register']);
-Route::post("/login",     [AuthController::class, 'login']);
+Route::post("/register/{key}",  [AuthController::class, 'register']);
+Route::post("/login/{key}",     [AuthController::class, 'login']);
 
 //using middleware
 Route::group(['middleware' => ['auth:sanctum']], function () {
