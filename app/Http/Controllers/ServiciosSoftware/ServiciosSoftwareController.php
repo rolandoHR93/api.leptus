@@ -1,30 +1,30 @@
 <?php
 
-namespace App\Http\Controllers\GrupoServicios;
+namespace App\Http\Controllers\ServiciosSoftware;
 
 use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use Illuminate\Http\Request;
 use App\Repositories\GrupoServiciosRepository;
-use App\Models\GrupoServicios;
+use Illuminate\Http\Request;
 use Exception;
 
-class GrupoServiciosController extends Controller
+class ServiciosSoftwareController extends Controller
 {
-    protected $grupoRepository;
+
+    protected $repository;
 
     public function __construct(GrupoServiciosRepository $grupoRepository)
     {
-        $this->grupoRepository = $grupoRepository;
+        // $this->repository = $grupoRepository;
     }
 
-    public function lista(string $key, int $meses=1){
+
+    public function lista(string $key){
 
         if($key != env('API_KEY_ACCESS'))
                 abort(404);
 		try {
-            $resultados = $this->grupoRepository->lista($meses);
-			return response()->json($resultados);
+
 		}
 		catch (Exception $e) {
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);

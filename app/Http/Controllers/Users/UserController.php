@@ -18,7 +18,7 @@ class UserController extends Controller
     }
 
 	public function lista(string $key){
-        if($key != 'iT3BnOENtV30pxRDadZ99e43wbDL4NA9')
+        if($key != env('API_KEY_ACCESS'))
                 abort(404);
 		try {
             $usuarios =  $this->userRepository->lista();

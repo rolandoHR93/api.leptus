@@ -22,7 +22,7 @@ class AuthController extends Controller
 
 	public function register(Request $request, string $key){
 
-        if($key != 'iT3BnOENtV30pxRDadZ99e43wbDL4NA9')
+        if($key != env('API_KEY_ACCESS'))
                 abort(404);
 		try {
 			$validateData = $request->validate([
@@ -49,7 +49,7 @@ class AuthController extends Controller
 
 	public function login(Request $request, string $key){
 
-        if($key != 'iT3BnOENtV30pxRDadZ99e43wbDL4NA9')
+        if($key != env('API_KEY_ACCESS'))
                 abort(404);
 		try {
             if(!Auth::attempt($request->only('email', 'password'))){
