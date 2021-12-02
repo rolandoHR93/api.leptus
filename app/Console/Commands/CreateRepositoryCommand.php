@@ -21,7 +21,7 @@ class CreateRepositoryCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Generate a file PHP Repository composer';
+    protected $description = 'Generate a file PHP Repository and interface composer';
 
     /**
      * Create a new command instance.
@@ -49,8 +49,12 @@ class CreateRepositoryCommand extends Command
 
         $viewComposer = $viewComposer.'Repository';
 
-        $contents= $this->generateContentFileRepository($viewComposer);
+        $contents = $this->generateContentFileRepository($viewComposer);
 
+        return $this->createFileRepository($viewComposer, $contents);
+    }
+
+    private function createFileRepository(string $viewComposer, string $contents){
         if ($this->confirm('Do you wish to create '.$viewComposer.' Composer file?')) {
             $file = "${viewComposer}.php";
             $path=app_path();
@@ -60,7 +64,7 @@ class CreateRepositoryCommand extends Command
 
             if($this->files->isDirectory($composerDir)){
                 if($this->files->isFile($file))
-                    return $this->error($viewComposer.'X - File Already exists!');
+                    return $this->error($viewComposer.' X - File Already exists!');
 
                 if(!$this->files->put($file, $contents))
                     return $this->error('X - Something went wrong!');
