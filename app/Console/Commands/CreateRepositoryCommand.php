@@ -64,14 +64,14 @@ class CreateRepositoryCommand extends Command
 
                 if(!$this->files->put($file, $contents))
                     return $this->error('X - Something went wrong!');
-                $this->info("•••• $viewComposer generated ‼‼‼‼");
+                $this->info("•••• $viewComposer generated √√√√");
             }
             else{
                 $this->files->makeDirectory($composerDir, 0777, true, true);
 
                 if(!$this->files->put($file, $contents))
                     return $this->error('X - Something went wrong!');
-                $this->info("•••• $viewComposer generated ‼‼‼‼");
+                $this->info("•••• $viewComposer generated √√√√");
             }
 
         }
