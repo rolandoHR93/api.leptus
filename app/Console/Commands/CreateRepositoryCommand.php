@@ -47,7 +47,7 @@ class CreateRepositoryCommand extends Command
             return $this->error('Composer Name Invalid..!');
         }
 
-        $contents= $this->generateContentFile($viewComposer);
+        $contents= $this->generateContentFileRepository($viewComposer);
 
         if ($this->confirm('Do you wish to create '.$viewComposer.' Composer file?')) {
             $file = "${viewComposer}.php";
@@ -75,7 +75,7 @@ class CreateRepositoryCommand extends Command
         }
     }
 
-    private function generateContentFile(string $viewComposer):string{
+    private function generateContentFileRepository(string $viewComposer):string{
         $contents=
             '<?php
 namespace App\Repositories;
