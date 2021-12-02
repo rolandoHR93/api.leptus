@@ -15,13 +15,12 @@ class GrupoServiciosController extends Controller
 
     public function __construct(GrupoServiciosRepository $grupoRepository)
     {
+        $this->middleware('verifyApiCode');
         $this->grupoRepository = $grupoRepository;
     }
 
     public function lista(string $key, int $meses=1){
 
-        if($key != env('API_KEY_ACCESS'))
-                abort(404);
 		try {
             $resultados = $this->grupoRepository->lista($meses);
 			return response()->json($resultados);

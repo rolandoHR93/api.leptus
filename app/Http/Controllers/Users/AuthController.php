@@ -17,13 +17,12 @@ class AuthController extends Controller
 
     public function __construct(AuthRepository $authRepository)
     {
+        $this->middleware('verifyApiCode');
         $this->authRepository = $authRepository;
     }
 
 	public function register(Request $request, string $key){
 
-        if($key != env('API_KEY_ACCESS'))
-                abort(404);
 		try {
 			$validateData = $request->validate([
 				'nombres' => 'required|string|max:255',

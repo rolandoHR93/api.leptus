@@ -16,7 +16,7 @@ class ServiciosRepository implements ServiciosInterface
     }
 
     public function lista(){
-        $datos = ServiciosModel::get();
+        $datos = ServiciosModel::where('state', 1)->get();
 
         return $datos;
     }

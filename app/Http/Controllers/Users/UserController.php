@@ -14,12 +14,11 @@ class UserController extends Controller
 
     public function __construct(UserRepository $userRepository)
     {
+        $this->middleware('verifyApiCode');
         $this->userRepository = $userRepository;
     }
 
 	public function lista(string $key){
-        if($key != env('API_KEY_ACCESS'))
-                abort(404);
 		try {
             $usuarios =  $this->userRepository->lista();
 			return response()->json($usuarios);
