@@ -4,7 +4,7 @@ namespace App\Http\Controllers\ServiciosSoftware;
 
 use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use App\Repositories\GrupoServiciosRepository;
+use App\Repositories\ServiciosRepository;
 use Illuminate\Http\Request;
 use Exception;
 
@@ -13,9 +13,9 @@ class ServiciosSoftwareController extends Controller
 
     protected $repository;
 
-    public function __construct(GrupoServiciosRepository $grupoRepository)
+    public function __construct(ServiciosRepository $repository)
     {
-        // $this->repository = $grupoRepository;
+        $this->repository = $repository;
     }
 
     public function lista(string $key){
