@@ -47,14 +47,16 @@ class CreateRepositoryCommand extends Command
             return $this->error('Composer Name Invalid..!');
         }
 
+        $nameFileInterface = $viewComposer.'Interface';
         $viewComposer = $viewComposer.'Repository';
 
-        $contents = $this->generateContentFileRepository($viewComposer);
+        $contents = $this->generateContentFileRepository($viewComposer, $nameFileInterface);
 
-        return $this->createFileRepository($viewComposer, $contents);
+        return $this->createFileRepository($nameFileInterface, $viewComposer, $contents);
     }
 
-    private function createFileRepository(string $viewComposer, string $contents){
+    private function createFileRepository(string $nameFileInterface, string $viewComposer, string $contents){
+
         if ($this->confirm('Do you wish to create '.$viewComposer.' Composer file?')) {
             $file = "${viewComposer}.php";
             $path=app_path();
@@ -68,6 +70,8 @@ class CreateRepositoryCommand extends Command
 
                 if(!$this->files->put($file, $contents))
                     return $this->error('X - Something went wrong!');
+
+                // ---------------------
                 $this->info("•••• $viewComposer generated √√√√");
             }
             else{
@@ -75,13 +79,18 @@ class CreateRepositoryCommand extends Command
 
                 if(!$this->files->put($file, $contents))
                     return $this->error('X - Something went wrong!');
+
+                // ---------------------
                 $this->info("•••• $viewComposer generated √√√√");
+
             }
 
+            $contents = $this->generateContentFileInterface($nameFileInterface);
+            $this->createFileInterface($nameFileInterface, $contents);
         }
     }
 
-    private function generateContentFileRepository(string $viewComposer):string{
+    private function generateContentFileRepository(string $viewComposer, string $nameFileInterface):string{
         $contents=
             '<?php
 namespace App\Repositories;
@@ -90,13 +99,57 @@ use App\Models\User;
 use stdClass;
 use DB;
 
-class '.$viewComposer.'
+class '.$viewComposer.' implements '.$nameFileInterface.'
 {
     /**
     * Create a new '.$viewComposer.' composer.
-    * now implements NameInterface
     * @return void
     */
+
+    public function search(string $id){
+
+    }
+}';
+        return $contents;
+    }
+
+
+    private function createFileInterface(string $nameFileInterface, string $contents){
+
+        if ($this->confirm('Do you wish to create '.$nameFileInterface.' Composer file?')) {
+            $file = "${nameFileInterface}.php";
+            $path=app_path();
+
+            $file=$path."/Repositories/$file";
+            $composerDir=$path."/Repositories";
+
+            if($this->files->isDirectory($composerDir)){
+                if($this->files->isFile($file))
+                    return $this->error($nameFileInterface.' X - File Already exists!');
+
+                if(!$this->files->put($file, $contents))
+                    return $this->error('X - Something went wrong!');
+                $this->info("•••• $nameFileInterface generated √√√√");
+            }
+            else{
+                $this->files->makeDirectory($composerDir, 0777, true, true);
+
+                if(!$this->files->put($file, $contents))
+                    return $this->error('X - Something went wrong!');
+                $this->info("•••• $nameFileInterface generated √√√√");
+            }
+        }
+    }
+
+    private function generateContentFileInterface(string $nameFileInterface):string{
+        $contents=
+            '<?php
+namespace App\Repositories;
+
+interface '.$nameFileInterface.'
+{
+
+    public function search(string $id);
 
 }';
         return $contents;
