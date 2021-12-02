@@ -23,9 +23,9 @@ class ServiciosSoftwareController extends Controller
         if($key != env('API_KEY_ACCESS'))
                 abort(404);
 		try {
-            // $resultados = $this->grupoRepository->lista($meses);
+            $resultados = $this->repository->lista();
 
-			return response()->json('caso');
+			return response()->json($resultados);
 		}
 		catch (Exception $e) {
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);

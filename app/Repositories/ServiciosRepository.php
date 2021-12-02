@@ -1,7 +1,7 @@
 <?php
 namespace App\Repositories;
 
-use App\Models\User;
+use App\Models\ServiciosModel;
 use stdClass;
 use DB;
 
@@ -13,6 +13,11 @@ class ServiciosRepository implements ServiciosInterface
     */
 
     public function search(string $id){
+    }
 
+    public function lista(){
+        $datos = ServiciosModel::get();
+
+        return $datos;
     }
 }
