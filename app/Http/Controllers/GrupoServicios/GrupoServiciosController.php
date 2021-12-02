@@ -18,9 +18,9 @@ class GrupoServiciosController extends Controller
         $this->grupoRepository = $grupoRepository;
     }
 
-    public function lista(){
+    public function lista(int $meses){
 		try {
-            $resultados = $this->grupoRepository->lista();
+            $resultados = $this->grupoRepository->lista($meses);
 			return response()->json($resultados);
 		}
 		catch (Exception $e) {

@@ -3,6 +3,6 @@ namespace App\Repositories;
 
 interface GrupoServiciosInterface {
 
-    public function lista();
+    public function lista(int $meses);
 
 }

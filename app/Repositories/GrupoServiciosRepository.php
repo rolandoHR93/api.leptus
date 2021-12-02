@@ -7,7 +7,7 @@ use DB;
 
 class GrupoServiciosRepository implements GrupoServiciosInterface {
 
-    public function lista(){
+    public function lista(int $meses=1){
         $prequery = 'SELECT	a.id,
                     b.id Grupo_Id,
                     b.nombre_grupo,
@@ -24,7 +24,7 @@ class GrupoServiciosRepository implements GrupoServiciosInterface {
                     ON		A.GrupoServicios_id = b.id
                     INNER JOIN leptus.servicios C
                     ON		A.Servicios_id = c.Id
-                    where b.Meses = 1
+                    where b.Meses = '.$meses.'
                     order by 1';
 
         $resultados = DB::select($prequery);
