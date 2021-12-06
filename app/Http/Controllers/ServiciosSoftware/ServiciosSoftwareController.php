@@ -24,7 +24,7 @@ class ServiciosSoftwareController extends Controller
 		try {
             $resultados = $this->repository->lista();
 
-			return response()->json($resultados, 200);
+			return response()->json(['data' => $resultados], 200);
 		}
 		catch (Exception $e) {
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
@@ -36,7 +36,7 @@ class ServiciosSoftwareController extends Controller
 		try {
             $resultados = $this->repository->createServicio($request);
 
-		    return response()->json([$resultados], 201);
+		    return response()->json(['data' => $resultados], 201);
         }
         catch (Exception $e) {
             return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
@@ -48,7 +48,7 @@ class ServiciosSoftwareController extends Controller
 		try {
             $resultados = $this->repository->updateServicio($request, $id);
 
-            return response()->json([$resultados], 200);
+            return response()->json(['data' => $resultados], 200);
         }
         catch (Exception $e) {
             return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
