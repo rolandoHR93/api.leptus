@@ -17,7 +17,6 @@ class ServiciosModel extends Model
         'nombre_clave',
         'precio',
         'stock',
-        'stock',
         'flag',
         'state',
         'created_by',
