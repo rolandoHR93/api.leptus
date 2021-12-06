@@ -1,4 +1,4 @@
 <?php
 
-use App\Http\Controllers\GrupoServicios\FacturacionSoftwareController;
+use App\Http\Controllers\FacturacionSoftware\FacturacionSoftwareController;
 use Illuminate\Support\Facades\Route;
