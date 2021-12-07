@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Modulos extends Model
 {
     use HasFactory;
+    protected $table = 'leptus.modulos';
+
 }

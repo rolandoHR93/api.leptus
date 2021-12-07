@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Reportes extends Model
 {
     use HasFactory;
+    protected $table = 'leptus.Reportes';
+
 }

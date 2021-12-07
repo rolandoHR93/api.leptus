@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ServiciosModel extends Model
 {
     use HasFactory;
-    protected $table = 'servicios';
+    protected $table = 'leptus.servicios';
     protected $primaryKey = 'id';
 
     protected $fillable = [
