@@ -2,7 +2,7 @@
 namespace App\Repositories;
 
 use Illuminate\Http\Request;
-use App\Models\GrupoServicios;
+use App\Models\Interno\GrupoServicios;
 use stdClass;
 use DB;
 

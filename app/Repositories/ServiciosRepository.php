@@ -1,7 +1,7 @@
 <?php
 namespace App\Repositories;
 
-use App\Models\ServiciosModel;
+use App\Models\Interno\ServiciosModel;
 use Illuminate\Http\Request;
 use stdClass;
 use DB;
