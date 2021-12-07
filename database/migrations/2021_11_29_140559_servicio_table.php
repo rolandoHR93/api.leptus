@@ -21,9 +21,13 @@ class ServicioTable extends Migration
             $table->double('precio');
             $table->integer('stock');
             $table->integer('flag');
+            $table->string('delete_comentario', 255);
+            $table->integer('delete');
             $table->integer('state');
             $table->integer('created_by');
             $table->integer('updated_by');
+            $table->integer('deleted_by');
+            $table->datetime('deleted_at');
             $table->timestamps();
         });
     }

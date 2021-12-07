@@ -18,8 +18,12 @@ class ServiciosModel extends Model
         'precio',
         'stock',
         'flag',
+        'delete_comentario',
+        'delete',
         'state',
         'created_by',
         'updated_by',
+        'deleted_by',
+        'deleted_at',
     ];
 }
