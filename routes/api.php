@@ -15,7 +15,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get('/', function(){
-	return response()->json('--- Bienvenido al API 👍 ---', 200);
+	return response()->json('--- Bienvenido  👍 ---', 200);
 });
 
 Route::prefix('auth')

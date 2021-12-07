@@ -15,10 +15,11 @@ class CreateUsersPermisosTable extends Migration
     {
         Schema::create('leptus.users_permisos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('users_id');
-            $table->foreign('users_id')->references('id')->on('leptus.users');
-            $table->unsignedInteger('permisos_id');
-            $table->foreign('permisos_id')->references('id')->on('leptus.Permisos');
+
+            // $table->unsignedInteger('users_id');
+            // $table->foreign('users_id')->references('id')->on('leptus.users');
+            // $table->unsignedInteger('permisos_id');
+            // $table->foreign('permisos_id')->references('id')->on('leptus.Permisos');
         });
     }
 
