@@ -25,6 +25,13 @@ Route::prefix('usuarios')
 	->group(base_path('routes/modulos/usuario.php'));
 
 
+Route::prefix('roles')
+	->group(base_path('routes/modulos/roles.php'));
+
+Route::prefix('permisos')
+	->group(base_path('routes/modulos/permisosSoftware.php'));
+
+
 Route::prefix('serviciosSoftware')
 	->group(base_path('routes/modulos/grupoServicio.php'));
 
