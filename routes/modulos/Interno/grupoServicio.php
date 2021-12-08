@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\ServiciosSoftware\ServiciosSoftwareController;
-use App\Http\Controllers\GrupoServicios\GrupoServiciosController;
+use App\Http\Controllers\Interno\GrupoServicios\GrupoServiciosController;
+use App\Http\Controllers\Interno\ServiciosSoftware\ServiciosSoftwareController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get("/lista/{key}/{meses?}",  [GrupoServiciosController::class, 'lista']);
+
+Route::get("/lista/{key}",  [GrupoServiciosController::class, 'lista']);
 
 
 Route::get("Servicioslista/{key}",  [ServiciosSoftwareController::class, 'lista']);

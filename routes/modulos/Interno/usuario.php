@@ -11,6 +11,6 @@ Route::get('/', function(){
 });
 
 
-Route::get("/lista/{id}",      [UserController::class, 'lista']);
+Route::get("/lista/{key}",      [UserController::class, 'lista']);
 
 

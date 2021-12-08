@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\GrupoServicios;
+namespace App\Http\Controllers\Interno\GrupoServicios;
 
 use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,8 +19,8 @@ class GrupoServiciosController extends Controller
         $this->grupoRepository = $grupoRepository;
     }
 
-    public function lista(string $key, int $meses=1){
-
+    public function lista( $key=''){
+         $meses=1;
 		try {
             $resultados = $this->grupoRepository->lista($meses);
 			return response()->json($resultados);

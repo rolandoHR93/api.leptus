@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\ServiciosSoftware;
+namespace App\Http\Controllers\Interno\ServiciosSoftware;
 
 use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,7 +19,7 @@ class ServiciosSoftwareController extends Controller
         $this->repository = $repository;
     }
 
-    public function lista(string $key){
+    public function lista($key){
 
 		try {
             $resultados = $this->repository->lista();
@@ -43,7 +43,7 @@ class ServiciosSoftwareController extends Controller
         }
     }
 
-    public function update(Request $request, string $key , string $id)
+    public function update(Request $request, $key, $id)
 	{
 		try {
             $resultados = $this->repository->updateServicio($request, $id);
@@ -55,7 +55,7 @@ class ServiciosSoftwareController extends Controller
         }
 	}
 
-	public function delete(string $key, string $id)
+	public function delete($key, $id)
 	{
 		try {
             $resultados = $this->repository->deleteServicio( $id);
