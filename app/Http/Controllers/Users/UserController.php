@@ -18,7 +18,7 @@ class UserController extends Controller
         $this->userRepository = $userRepository;
     }
 
-	public function lista(string $key){
+	public function lista($key){
 		try {
             $usuarios =  $this->userRepository->lista();
 			return response()->json($usuarios);
