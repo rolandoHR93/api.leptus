@@ -49,4 +49,3 @@ Route::prefix('facturacionSoftware')
 Route::prefix('clientesAdministrador')
 	->group(base_path('routes/modulos/externo/clientesAdministrador.php'));
 
-
