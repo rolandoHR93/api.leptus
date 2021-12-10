@@ -3,33 +3,16 @@ namespace App\Repositories;
 
 use Illuminate\Http\Request;
 use App\Models\Interno\GrupoServicios;
+use Illuminate\Support\Facades\DB;
 use stdClass;
-use DB;
 
 class GrupoServiciosRepository implements GrupoServiciosInterface {
 
     public function lista(int $meses=1){
-        $prequery = 'SELECT	a.id,
-                    b.id Grupo_Id,
-                    b.nombre_grupo,
-                    b.descripcion Descripcion_Modulo,
-                    b.Meses,
-                    B.precio,
-                    c.Nombre_Servicio Nombre_Modulo,
-                    c.Descripcion Descripcion_Servicio,
-                    sum(c.precio) over (partition by b.id order by a ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)* Meses Precio_Regular,
-                    sum(c.precio) over (partition by b.id order by a ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)* Meses - B.precio Precio_Ahorro,
-                    (1 - round( CAST(float8 (B.precio/(sum(c.precio) over (partition by b.id order by a ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)* Meses))as numeric), 2))*100 Precio_Ahorro_Porcentaje
-                    FROM	leptus.grupo_servicios A
-                    INNER JOIN leptus."grupoServicios" B
-                    ON		A.GrupoServicios_id = b.id
-                    INNER JOIN leptus.servicios C
-                    ON		A.Servicios_id = c.Id
-                    where b.Meses = '.$meses.'
-                    order by 1';
+
+        $prequery = "exec [dbo].[LISTADO_PRECIO_SERVICIOS] ${meses}";
 
         $resultados = DB::select($prequery);
-
         $datosProcesados = $this->procesarDatosJSon( $resultados);
 
         return $datosProcesados;
@@ -43,10 +26,10 @@ class GrupoServiciosRepository implements GrupoServiciosInterface {
             if(!array_key_exists($dato->nombre_grupo, $grouped)) {
                 $newObject = new stdClass();
 
-                $newObject->grupo_id = $dato->grupo_id;
+                $newObject->Grupo_Id = $dato->Grupo_Id;
                 $newObject->nombre_grupo = $dato->nombre_grupo;
                 $newObject->precio = $dato->precio;
-                $newObject->descripcion_modulo = $dato->descripcion_modulo;
+                $newObject->Descripcion_Modulo = $dato->Descripcion_Modulo;
                 $newObject->servicios = array();
 
                 $grouped[$dato->nombre_grupo] = $newObject;
@@ -54,8 +37,8 @@ class GrupoServiciosRepository implements GrupoServiciosInterface {
             $taskObject = new stdClass();
 
             $taskObject->id = $dato->id;
-            $taskObject->nombre_modulo = $dato->nombre_modulo;
-            $taskObject->descripcion_modulo = $dato->descripcion_modulo;
+            $taskObject->Nombre_Modulo = $dato->Nombre_Modulo;
+            $taskObject->Descripcion_Modulo = $dato->Descripcion_Modulo;
 
             $grouped[$dato->nombre_grupo]->servicios[] = $taskObject;
             // $newJsArr[$dato->grupo_id][] = ["id" => $dato->id, "descripcion_servicio" => $dato->descripcion_servicio];
