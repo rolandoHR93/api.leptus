@@ -16,7 +16,6 @@ class Roles extends Model
         'nombre',
         'descripcion',
         'clave_rol',
-        'meses',
         'state',
         'created_by',
         'updated_by',

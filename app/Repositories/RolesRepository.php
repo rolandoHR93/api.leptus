@@ -29,7 +29,6 @@ class RolesRepository implements RolesInterface
 				'nombre' => $request->nombre,
                 'descripcion' => $request->descripcion,
                 'clave_rol' => $request->clave_rol,
-                'meses' => $request->meses,
 				'state' => 1,
 				'created_by' => 1,
 				'updated_by' => 1
@@ -46,7 +45,6 @@ class RolesRepository implements RolesInterface
 			'nombre' => $request->nombre,
             'descripcion' => $request->descripcion,
             'clave_rol' => $request->clave_rol,
-            'meses' => $request->meses,
 		]);
 
 		return $rol;
