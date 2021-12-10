@@ -1,7 +1,7 @@
 <?php
 namespace App\Repositories;
 
-use App\Models\Interno\Rol;
+use App\Models\Interno\Roles;
 use Illuminate\Http\Request;
 use stdClass;
 use DB;
@@ -19,7 +19,7 @@ class RolesRepository implements RolesInterface
 
     public function lista(){
 
-        $datos = Rol::all();
+        $datos = Roles::all();
 
         return $datos;
     }

@@ -18,6 +18,7 @@ class RolesController extends Controller
         $this->repository = $repository;
     }
 
+
     public function lista($key)
     {
         try {
