@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Roles\RolesController;
+use App\Http\Controllers\Interno\Roles\RolesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get("lista/{key}",  [RolesController::class, 'lista']);
