@@ -1,8 +1,8 @@
 <?php
 namespace App\Repositories;
 
+use App\Models\Interno\Rol;
 use Illuminate\Http\Request;
-use App\Models\Interno\User;
 use stdClass;
 use DB;
 
@@ -19,6 +19,9 @@ class RolesRepository implements RolesInterface
 
     public function lista(){
 
+        $datos = Rol::all();
+
+        return $datos;
     }
     public function create(Request $request){
 
