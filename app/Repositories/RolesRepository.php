@@ -24,12 +24,47 @@ class RolesRepository implements RolesInterface
         return $datos;
     }
     public function create(Request $request){
+        $rol = new Roles(
+			[
+				'nombre' => $request->nombre,
+                'descripcion' => $request->descripcion,
+                'clave_rol' => $request->clave_rol,
+                'meses' => $request->meses,
+				'state' => 1,
+				'created_by' => 1,
+				'updated_by' => 1
+			]
+		);
+		$rol->save();
 
+		return $rol;
     }
     public function update(Request $request, string $id){
+        $rol = Roles::FindOrFail($id);
 
+		$rol->update([
+			'nombre' => $request->nombre,
+            'descripcion' => $request->descripcion,
+            'clave_rol' => $request->clave_rol,
+            'meses' => $request->meses,
+		]);
+
+		return $rol;
     }
     public function delete(string $id){
+        $destroy = Roles::destroy($id);
 
+        if ($destroy){
+            return  [
+                'status'=>'1',
+                'msg'=>'success'
+            ];
+
+        }else{
+            return[
+                'status'=>'0',
+                'msg'=>'fail'
+            ];
+        }
     }
 }
