@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
 Route::get("/lista/{key}/{meses?}",  [GrupoServiciosController::class, 'lista']);
 
 

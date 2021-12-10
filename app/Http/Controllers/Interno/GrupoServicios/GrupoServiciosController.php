@@ -19,7 +19,7 @@ class GrupoServiciosController extends Controller
         $this->grupoRepository = $grupoRepository;
     }
 
-    public function lista( $key='',  $meses=1){
+    public function lista($key,  $meses=1){
 
 		try {
             $resultados = $this->grupoRepository->lista($meses);
