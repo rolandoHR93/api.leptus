@@ -7,6 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class PermisosSoftware extends Model
 {
-    protected $table = 'users.permisos';
     use HasFactory;
+    protected $table = 'users.permisos';
+
+    protected $primaryKey = 'id';
+    
+    protected $fillable = [
+        'descripcion',
+        'nombre_clave',
+        'state',
+        'created_by',
+        'updated_by',
+    ];
 }
