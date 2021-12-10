@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Permisos;
+namespace App\Http\Controllers\Interno\Permisos;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\PermisosRepository;
+use Exception;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class PermisosController extends Controller
 {

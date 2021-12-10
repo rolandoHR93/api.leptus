@@ -2,7 +2,7 @@
 namespace App\Repositories;
 
 use Illuminate\Http\Request;
-use App\Models\Interno\User;
+use App\Models\Interno\PermisosSoftware;
 use stdClass;
 use DB;
 
@@ -19,6 +19,9 @@ class PermisosRepository implements PermisosInterface
 
     public function lista(){
 
+        $datos = PermisosSoftware::all();
+
+        return $datos; 
     }
     public function create(Request $request){
 

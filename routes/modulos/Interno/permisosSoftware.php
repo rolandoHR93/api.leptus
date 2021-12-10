@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Permisos\PermisosController;
+use App\Http\Controllers\Interno\Permisos\PermisosController;
 use Illuminate\Support\Facades\Route;
 
 Route::get("lista/{key}",  [PermisosController::class, 'lista']);
