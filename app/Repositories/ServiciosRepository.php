@@ -24,6 +24,7 @@ class ServiciosRepository implements ServiciosInterface
 
 	public function createServicio(Request $request){
 
+
 		$servicio = new ServiciosModel(
 			[
 				'nombre_servicio' => $request->nombre_servicio,
@@ -37,6 +38,10 @@ class ServiciosRepository implements ServiciosInterface
 				'updated_by' => 1
 			]
 		);
+
+        // $test = $servicio->getDateFormat();
+        // dd($test);
+
 		$servicio->save();
 
 		return $servicio;

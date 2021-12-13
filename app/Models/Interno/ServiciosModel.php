@@ -26,4 +26,13 @@ class ServiciosModel extends Model
         'deleted_by',
         'deleted_at',
     ];
+
+    public function getDateFormat() {
+        return 'Y-d-m h:i:s';
+    }
+
+    // protected $casts = [
+    //     'created_at' => 'datetime:Y-m-d',
+    //     'updated_at' => 'datetime:Y-m-d',
+    // ];
 }
