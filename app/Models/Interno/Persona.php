@@ -8,6 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Persona extends Model
 {
     use HasFactory;
-    protected $table = 'leptus.persona';
+    protected $table = 'users.Persona';
 
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'nombres',
+        'apellido_paterno',
+        'apellido_materno',
+        'search',
+        'state',
+        'created_by',
+        'updated_by',
+    ];
 }

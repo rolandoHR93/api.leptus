@@ -43,6 +43,8 @@ Route::prefix('serviciosSoftware')
 Route::prefix('facturacionSoftware')
 	->group(base_path('routes/modulos/Interno/facturacionSoftware.php'));
 
+Route::prefix('personas')
+	->group(base_path('routes/modulos/Interno/personas.php'));
 
 // ================================================
 // **************** MODULOS EXTERNOS ****************
