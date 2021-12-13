@@ -3,6 +3,7 @@ namespace App\Repositories;
 
 use App\Models\Interno\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Carbon;
 use DB;
 
 class AuthRepository implements AuthInterface {
@@ -13,6 +14,8 @@ class AuthRepository implements AuthInterface {
             'nombres'  => $data['nombres'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            // 'create_at'=> Carbon::now(),
+            // 'updated_at'=> Carbon::now(),
         ]);
 
         return $user;
