@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\FacturacionSoftware;
+namespace App\Http\Controllers\Interno\FacturacionSoftware;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
