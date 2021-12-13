@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models\Sanctum;
+
+use App\Helpers\FechaHelper;
 use Laravel\Sanctum\PersonalAccessToken as SanctumPersonalAccessToken;
 
 class PersonalAccessToken extends SanctumPersonalAccessToken
@@ -29,6 +31,7 @@ class PersonalAccessToken extends SanctumPersonalAccessToken
     }
 
     public function getDateFormat() {
-        return 'Y-d-m H:i:s';
+        $function = new FechaHelper();
+        return $function->getDateFormat();
     }
 }
