@@ -16,4 +16,7 @@ Route::get('/', function(){
 });
 
 
-Route::get("/lista/{key}",      [UserController::class, 'lista']);
+Route::get("/lista/{key}", [UserController::class, 'lista']);
+Route::post("create/{key}",  [UserController::class, 'create']);
+Route::put("update/{key}/{id}",  [UserController::class, 'update']);
+Route::delete("delete/{key}/{id}",  [UserController::class, 'delete']);

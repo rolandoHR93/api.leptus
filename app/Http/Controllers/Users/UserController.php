@@ -27,4 +27,39 @@ class UserController extends Controller
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
 		}
 	}
+
+	public function create(Request $request, $key){
+        try {
+            $usuarios = $this->userRepository->create($request);
+
+			return response()->json(['data' => $usuarios], 200);
+		}
+		catch (Exception $e) {
+			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+		}
+    }
+
+    public function update(Request $request, $key, $id){
+        try {
+
+            $usuarios = $this->userRepository->update($request, $id);
+
+			return response()->json(['data' => $usuarios], 200);
+		}
+		catch (Exception $e) {
+			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+		}
+    }
+
+    public function delete($key, $id){
+        try {
+
+            $usuarios = $this->userRepository->delete($id);
+
+			return response()->json(['data' => $usuarios], 200);
+		}
+		catch (Exception $e) {
+			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+		}
+    }
 }
