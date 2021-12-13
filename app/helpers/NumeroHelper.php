@@ -1,5 +1,5 @@
 <?php
-namespace App\Clases;
+namespace App\Helpers;
 
 
 class NumeroHelper

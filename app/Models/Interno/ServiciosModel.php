@@ -2,6 +2,7 @@
 
 namespace App\Models\Interno;
 
+use App\Helpers\FechaHelper;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -28,6 +29,7 @@ class ServiciosModel extends Model
 	];
 
 	public function getDateFormat() {
-		return 'Y-d-m H:i:s';
-	}
+        $function = new FechaHelper();
+        return $function->getDateFormat();
+    }
 }

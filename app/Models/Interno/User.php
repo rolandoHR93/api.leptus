@@ -2,6 +2,7 @@
 
 namespace App\Models\Interno;
 
+use App\Helpers\FechaHelper;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -34,6 +35,7 @@ class User extends Authenticatable
 	];
 
 	public function getDateFormat() {
-		return 'Y-d-m H:i:s';
-	}
+        $function = new FechaHelper();
+        return $function->getDateFormat();
+    }
 }

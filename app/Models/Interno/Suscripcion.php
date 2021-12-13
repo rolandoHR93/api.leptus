@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Suscripcion extends Model
 {
     use HasFactory;
+    protected $table = 'leptus.nombre';
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'state',
+        'created_by',
+        'updated_by',
+        'deleted_by',
+        'deleted_at',
+    ];
+
 }

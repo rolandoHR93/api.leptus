@@ -4,6 +4,7 @@ namespace App\Models\Interno;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Helpers\FechaHelper;
 
 class Roles extends Model
 {
@@ -22,6 +23,7 @@ class Roles extends Model
     ];
 
     public function getDateFormat() {
-		return 'Y-d-m H:i:s';
-	}
+        $function = new FechaHelper();
+        return $function->getDateFormat();
+    }
 }

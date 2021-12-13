@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ConfiguracionUsuario extends Model
 {
     use HasFactory;
-    protected $table = 'leptus.Reportes';
+    protected $table = 'leptus.nombre';
     protected $primaryKey = 'id';
 
     protected $fillable = [
