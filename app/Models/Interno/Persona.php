@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Persona extends Model
 {
     use HasFactory;
-    protected $table = 'users.Persona';
+    protected $table = 'leptus.Persona';
 
     protected $primaryKey = 'id';
 
@@ -21,4 +21,8 @@ class Persona extends Model
         'created_by',
         'updated_by',
     ];
+
+    public function getDateFormat() {
+		return 'Y-d-m H:i:s';
+	}
 }

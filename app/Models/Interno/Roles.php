@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Roles extends Model
 {
     use HasFactory;
-    protected $table = 'users.roles';
+    protected $table = 'leptus.roles';
 
     protected $primaryKey = 'id';
 
@@ -20,4 +20,8 @@ class Roles extends Model
         'created_by',
         'updated_by',
     ];
+
+    public function getDateFormat() {
+		return 'Y-d-m H:i:s';
+	}
 }
