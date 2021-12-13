@@ -2,9 +2,12 @@
 --------------------------
 BackEnd: Laravel 8 💻
 
+http://api.leptus.pe/
 
 --------------------------
 FrontEnd: Angular 13 🅰️
+
+http://leptus.pe/
 
 https://leptus-peru.netlify.app/
 
