@@ -13,7 +13,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('leptus.users', function (Blueprint $table) {
+        Schema::create('dbo.users', function (Blueprint $table) {
             $table->id();
             $table->string('nombres');
             $table->string('apellidos')->nullable();
@@ -38,6 +38,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('leptus.users');
+        Schema::dropIfExists('dbo.users');
     }
 }

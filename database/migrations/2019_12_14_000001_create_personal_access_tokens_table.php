@@ -13,7 +13,7 @@ class CreatePersonalAccessTokensTable extends Migration
      */
     public function up()
     {
-        Schema::create('leptus.personal_access_tokens', function (Blueprint $table) {
+        Schema::create('dbo.personal_access_tokens', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->morphs('tokenable');
             $table->string('name');
@@ -31,6 +31,6 @@ class CreatePersonalAccessTokensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('leptus.personal_access_tokens');
+        Schema::dropIfExists('dbo.personal_access_tokens');
     }
 }
