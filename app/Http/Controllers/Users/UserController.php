@@ -21,7 +21,7 @@ class UserController extends Controller
 	public function lista($key){
 		try {
             $usuarios =  $this->userRepository->lista();
-			return response()->json($usuarios);
+			return response()->json(['data' => $usuarios]);
 		}
 		catch (Exception $e) {
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
