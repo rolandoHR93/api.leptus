@@ -61,8 +61,8 @@ class CreateRepositoryCommand extends Command
             $file = "${viewComposer}.php";
             $path=app_path();
 
-            $file=$path."/Repositories/$file";
-            $composerDir=$path."/Repositories";
+            $file=$path."/Repositories/".pathinfo("${viewComposer}.php")['dirname'].'/'.basename($file);
+            $composerDir=$path."/Repositories/".pathinfo("${viewComposer}.php")['dirname'];
 
             if($this->files->isDirectory($composerDir)){
                 if($this->files->isFile($file))
@@ -75,8 +75,8 @@ class CreateRepositoryCommand extends Command
                 $this->info("•••• $viewComposer generated √√√√");
             }
             else{
-                $this->files->makeDirectory($composerDir, 0777, true, true);
 
+                $this->files->makeDirectory($composerDir, 0777, true, true);
                 if(!$this->files->put($file, $contents))
                     return $this->error('X - Something went wrong!');
 
@@ -93,13 +93,14 @@ class CreateRepositoryCommand extends Command
     private function generateContentFileRepository(string $viewComposer, string $nameFileInterface):string{
         $contents=
             '<?php
-namespace App\Repositories;
+namespace App\Repositories'.((pathinfo("${viewComposer}.php")['dirname']!= '.')?
+'\\'.pathinfo("${viewComposer}.php")['dirname']:'').';
 
 use App\Models\User;
 use stdClass;
 use DB;
 
-class '.$viewComposer.' implements '.$nameFileInterface.'
+class '.basename($viewComposer).' implements '.basename($nameFileInterface).'
 {
     /**
     * Create a new '.$viewComposer.' composer.
@@ -120,8 +121,11 @@ class '.$viewComposer.' implements '.$nameFileInterface.'
             $file = "${nameFileInterface}.php";
             $path=app_path();
 
-            $file=$path."/Repositories/$file";
-            $composerDir=$path."/Repositories";
+            // $file=$path."/Repositories/$file";
+            // $composerDir=$path."/Repositories";
+
+            $file=$path."/Repositories/".pathinfo("${nameFileInterface}.php")['dirname'].'/'.basename($file);
+            $composerDir=$path."/Repositories/".pathinfo("${nameFileInterface}.php")['dirname'];
 
             if($this->files->isDirectory($composerDir)){
                 if($this->files->isFile($file))
@@ -144,14 +148,23 @@ class '.$viewComposer.' implements '.$nameFileInterface.'
     private function generateContentFileInterface(string $nameFileInterface):string{
         $contents=
             '<?php
-namespace App\Repositories;
+namespace App\Repositories'.((pathinfo("${nameFileInterface}.php")['dirname']!= '.')?
+'\\'.pathinfo("${nameFileInterface}.php")['dirname']:'').';
 
-interface '.$nameFileInterface.'
+interface '.basename($nameFileInterface).'
 {
 
     public function search(string $id);
 
 }';
         return $contents;
+    }
+
+    public function getRutaArchivo_O_Carpeta()
+    {
+        $test = basename("Interno/sudoers");
+        $partes_ruta = pathinfo('lib.inc.php');
+
+        dd($partes_ruta);
     }
 }
