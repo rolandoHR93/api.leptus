@@ -15,11 +15,6 @@ class User extends Authenticatable
 	protected $table = 'dbo.users';
 	// public $timestamps = false;
 
-	/**
-	 * The attributes that are mass assignable.
-	 *
-	 * @var string[]
-	 */
 	protected $fillable = [
 		'nombres',
 		'apellidos',
@@ -29,21 +24,11 @@ class User extends Authenticatable
 		'state',
 	];
 
-	/**
-	 * The attributes that should be hidden for serialization.
-	 *
-	 * @var array
-	 */
 	protected $hidden = [
 		'password',
 		'remember_token',
 	];
 
-	/**
-	 * The attributes that should be cast.
-	 *
-	 * @var array
-	 */
 	protected $casts = [
 		'email_verified_at' => 'datetime',
 	];
