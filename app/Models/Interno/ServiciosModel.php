@@ -28,11 +28,6 @@ class ServiciosModel extends Model
     ];
 
     public function getDateFormat() {
-        return 'Y-d-m h:i:s';
+        return 'Y-d-m H:i:s';
     }
-
-    // protected $casts = [
-    //     'created_at' => 'datetime:Y-m-d',
-    //     'updated_at' => 'datetime:Y-m-d',
-    // ];
 }

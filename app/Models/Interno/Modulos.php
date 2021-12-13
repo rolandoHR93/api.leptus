@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Modulos extends Model
 {
     use HasFactory;
-    protected $table = 'leptus.modulos';
+    protected $table = 'leptus.Reportes';
+    protected $primaryKey = 'id';
 
+    protected $fillable = [
+        'state',
+        'created_by',
+        'updated_by',
+        'deleted_by',
+        'deleted_at',
+    ];
 }

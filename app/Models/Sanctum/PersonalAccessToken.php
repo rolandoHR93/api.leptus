@@ -6,6 +6,7 @@ use Laravel\Sanctum\PersonalAccessToken as SanctumPersonalAccessToken;
 class PersonalAccessToken extends SanctumPersonalAccessToken
 {
     protected $table = 'dbo.personal_access_tokens';
+    protected $primaryKey = 'id';
 
      /**
      * Limit saving of PersonalAccessToken records
@@ -28,6 +29,6 @@ class PersonalAccessToken extends SanctumPersonalAccessToken
     }
 
     public function getDateFormat() {
-        return 'Y-m-d H:i:s';
+        return 'Y-d-m H:i:s';
     }
 }
