@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Persona extends Model
 {
     use HasFactory;
-    protected $table = 'leptus.Persona';
+    protected $table = 'users.Persona';
 
     protected $primaryKey = 'id';
 

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Interno\Personas;
 
-use App\Repositories\PersonasRepository;
+
 use App\Http\Controllers\Controller;
+use App\Repositories\Interno\PersonasRepository;
 use Exception;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -41,7 +42,7 @@ class PersonasController extends Controller
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
 		}
     }
-    
+
     public function update(Request $request, $key, $id){
         try {
 
