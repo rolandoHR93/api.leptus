@@ -150,6 +150,7 @@ class '.basename($viewComposer).' implements '.basename($nameFileInterface).'
             '<?php
 namespace App\Repositories'.((pathinfo("${nameFileInterface}.php")['dirname']!= '.')?
 '\\'.pathinfo("${nameFileInterface}.php")['dirname']:'').';
+use Illuminate\Http\Request;
 
 interface '.basename($nameFileInterface).'
 {

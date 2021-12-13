@@ -1,5 +1,5 @@
 <?php
-namespace App\Repositories;
+namespace App\Repositories\Interno;
 use Illuminate\Http\Request;
 
 interface ServiciosInterface

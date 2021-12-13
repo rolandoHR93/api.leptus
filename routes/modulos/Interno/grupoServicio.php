@@ -5,6 +5,8 @@ use App\Http\Controllers\Interno\ServiciosSoftware\ServiciosSoftwareController;
 use Illuminate\Support\Facades\Route;
 
 
+// http://127.0.0.1:8000/api/serviciosSoftware
+//----------------
 
 
 Route::get("/lista/{key}/{meses?}",  [GrupoServiciosController::class, 'lista']);

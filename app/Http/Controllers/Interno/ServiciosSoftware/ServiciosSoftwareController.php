@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Interno\ServiciosSoftware;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\Interno\ServiciosRepository;
 use Symfony\Component\HttpFoundation\Response;
-use App\Repositories\ServiciosRepository;
 use Illuminate\Http\Request;
 use Exception;
 

@@ -1,5 +1,5 @@
 <?php
-namespace App\Repositories;
+namespace App\Repositories\Interno;
 
 use App\Models\Interno\ServiciosModel;
 use Illuminate\Http\Request;
@@ -8,7 +8,7 @@ use DB;
 
 class ServiciosRepository implements ServiciosInterface
 {
-	/**
+    /**
 	* Create a new ServiciosRepository composer.
 	* @return void
 	*/
@@ -79,6 +79,4 @@ class ServiciosRepository implements ServiciosInterface
             ];
         }
 	}
-
-
 }
