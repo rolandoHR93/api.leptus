@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Models\Interno;
-
+namespace App\Models\Sanctum;
 use Laravel\Sanctum\PersonalAccessToken as SanctumPersonalAccessToken;
 
-class PersonalAccessTokens extends SanctumPersonalAccessToken
+class PersonalAccessToken extends SanctumPersonalAccessToken
 {
     protected $table = 'dbo.personal_access_tokens';
 
