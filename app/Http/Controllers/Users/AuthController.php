@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Users;
 use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
-use App\Repositories\AuthRepository;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\src\Repositories\Interno\AuthRepository;
 use Exception;
 
 class AuthController extends Controller

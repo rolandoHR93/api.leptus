@@ -1,13 +1,15 @@
 <?php
-namespace App\Repositories;
+namespace App\src\Repositories\Interno;
 
-use App\Models\Interno\User;
+use App\src\Interfaces\Interno\AuthInterface;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Carbon;
+use App\Models\Interno\User;
+use Illuminate\Http\Request;
+use stdClass;
 use DB;
 
-class AuthRepository implements AuthInterface {
-
+class AuthRepository implements AuthInterface
+{
     public function register(array $data){
 
         $user = User::create([
@@ -36,5 +38,5 @@ class AuthRepository implements AuthInterface {
             'message' => 'Tokens Revoked'
         ];
     }
-}
 
+}
