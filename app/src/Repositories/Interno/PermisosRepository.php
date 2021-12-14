@@ -1,27 +1,27 @@
 <?php
-namespace App\Repositories;
+namespace App\src\Repositories\Interno;
 
-use Illuminate\Http\Request;
+use App\src\Interfaces\Interno\PermisosInterface;
 use App\Models\Interno\PermisosSoftware;
+use Illuminate\Http\Request;
 use stdClass;
 use DB;
 
 class PermisosRepository implements PermisosInterface
 {
     /**
-    * Create a new PermisosRepository composer.
+    * Create a new Interno/PermisosRepository composer.
     * @return void
     */
-
-    public function search(string $id){
+    public function search(Request $request){
 
     }
 
-    public function lista(){
+    public function lista(string $page){
 
         $datos = PermisosSoftware::all();
 
-        return $datos; 
+        return $datos;
     }
     public function create(Request $request){
         $permiso = new PermisosSoftware(
@@ -63,4 +63,5 @@ class PermisosRepository implements PermisosInterface
             ];
         }
     }
+
 }

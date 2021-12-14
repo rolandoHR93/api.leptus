@@ -1,6 +1,7 @@
 <?php
-namespace App\Repositories;
+namespace App\src\Repositories\Interno;
 
+use App\src\Interfaces\Interno\RolesInterface;
 use App\Models\Interno\Roles;
 use Illuminate\Http\Request;
 use stdClass;
@@ -9,16 +10,14 @@ use DB;
 class RolesRepository implements RolesInterface
 {
     /**
-    * Create a new RolesRepository composer.
+    * Create a new Interno/RolesRepository composer.
     * @return void
     */
-
-    public function search(string $id){
+    public function search(Request $request){
 
     }
 
-    public function lista(){
-
+    public function lista(string $page){
         $datos = Roles::all();
 
         return $datos;
@@ -65,4 +64,5 @@ class RolesRepository implements RolesInterface
             ];
         }
     }
+
 }

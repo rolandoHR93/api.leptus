@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Interno\Permisos;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\PermisosRepository;
+use App\src\Repositories\Interno\PermisosRepository;
 use Exception;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,7 +22,7 @@ class PermisosController extends Controller
     {
         try {
 
-            $respuesta = $this->repository->lista();
+            $respuesta = $this->repository->lista(1);
 
 			return response()->json(['data' => $respuesta], 200);
 		}
@@ -34,7 +34,7 @@ class PermisosController extends Controller
     public function create(Request $request, $key){
         try {
             $respuesta = $this->repository->create($request);
-            
+
 			return response()->json(['data' => $respuesta], 200);
 		}
 		catch (Exception $e) {

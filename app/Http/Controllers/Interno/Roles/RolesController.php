@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Interno\Roles;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\RolesRepository;
+use App\src\Repositories\Interno\RolesRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Http\Request;
 use Exception;
@@ -23,7 +23,7 @@ class RolesController extends Controller
     {
         try {
 
-            $respuesta = $this->repository->lista();
+            $respuesta = $this->repository->lista(1);
 
 			return response()->json(['data' => $respuesta], 200);
 		}
