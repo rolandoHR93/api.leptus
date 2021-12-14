@@ -21,7 +21,7 @@ class CreateRepositoryCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Generate a file PHP Repository and interface composer';
+    protected $description = 'NO USAR ESTE COMMANDO- Generate a file PHP Repository and interface composer';
 
     /**
      * Create a new command instance.
