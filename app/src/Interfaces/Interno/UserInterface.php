@@ -1,8 +1,8 @@
 <?php
-namespace App\Repositories\Externo;
+namespace App\src\Interfaces\Interno;
 use Illuminate\Http\Request;
 
-interface MesasInterface
+interface UserInterface
 {
     public function search(Request $request);
     public function lista(string $page);

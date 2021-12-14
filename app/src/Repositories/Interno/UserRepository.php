@@ -1,13 +1,23 @@
 <?php
-namespace App\Repositories;
+namespace App\src\Repositories\Interno;
 
-use Illuminate\Http\Request;
+use App\src\Interfaces\Interno\UserInterface;
 use App\Models\Interno\User;
+use Illuminate\Http\Request;
+use stdClass;
 use DB;
 
-class UserRepository implements UserInterface {
+class UserRepository implements UserInterface
+{
+    /**
+    * Create a new Interno/UserRepository composer.
+    * @return void
+    */
+    public function search(Request $request){
 
-    public function lista(){
+    }
+
+    public function lista(string $page){
         $resultados = User::all();
 
         return $resultados;
@@ -57,5 +67,5 @@ class UserRepository implements UserInterface {
             ];
         }
     }
-}
 
+}

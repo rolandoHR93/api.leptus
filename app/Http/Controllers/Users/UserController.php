@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
+use App\src\Repositories\Interno\UserRepository;
 use Symfony\Component\HttpFoundation\Response;
-use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Exception;
 
@@ -20,7 +20,7 @@ class UserController extends Controller
 
 	public function lista($key){
 		try {
-            $usuarios =  $this->userRepository->lista();
+            $usuarios =  $this->userRepository->lista(1);
 			return response()->json(['data' => $usuarios]);
 		}
 		catch (Exception $e) {

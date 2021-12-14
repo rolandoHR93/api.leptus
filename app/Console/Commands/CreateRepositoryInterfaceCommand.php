@@ -92,9 +92,11 @@ class CreateRepositoryInterfaceCommand extends Command
     private function generateContentFileRepository(string $viewComposer, string $nameFileInterface):string{
         $contents=
             '<?php
-namespace App\Repositories'.((pathinfo("${viewComposer}.php")['dirname']!= '.')?
+namespace App\src\Repositories'.((pathinfo("${viewComposer}.php")['dirname']!= '.')?
 '\\'.pathinfo("${viewComposer}.php")['dirname']:'').';
 
+use App\src\Interfaces'.((pathinfo("${nameFileInterface}.php")['dirname']!= '.')?
+'\\'.pathinfo("${nameFileInterface}.php")['dirname']:'').'\\'.basename($nameFileInterface).';
 use App\Models\Interno\User;
 use Illuminate\Http\Request;
 use stdClass;
@@ -164,7 +166,7 @@ class '.basename($viewComposer).' implements '.basename($nameFileInterface).'
     private function generateContentFileInterface(string $nameFileInterface):string{
         $contents=
             '<?php
-namespace App\Repositories'.((pathinfo("${nameFileInterface}.php")['dirname']!= '.')?
+namespace App\src\Interfaces'.((pathinfo("${nameFileInterface}.php")['dirname']!= '.')?
 '\\'.pathinfo("${nameFileInterface}.php")['dirname']:'').';
 use Illuminate\Http\Request;
 
