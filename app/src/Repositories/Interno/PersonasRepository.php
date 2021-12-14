@@ -1,6 +1,7 @@
 <?php
-namespace App\Repositories\Interno;
+namespace App\src\Repositories\Interno;
 
+use App\src\Interfaces\Interno\PersonasInterface;
 use App\Models\Interno\Persona;
 use Illuminate\Http\Request;
 use stdClass;
@@ -12,13 +13,11 @@ class PersonasRepository implements PersonasInterface
     * Create a new Interno/PersonasRepository composer.
     * @return void
     */
-
-    public function search(string $id){
+    public function search(Request $request){
 
     }
 
-    public function lista(){
-
+    public function lista(string $page){
         $datos = Persona::all();
         return $datos;
     }
@@ -69,4 +68,5 @@ class PersonasRepository implements PersonasInterface
             ];
         }
     }
+
 }

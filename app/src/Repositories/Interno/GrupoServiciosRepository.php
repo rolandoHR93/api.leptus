@@ -2,10 +2,10 @@
 namespace App\src\Repositories\Interno;
 
 use App\src\Interfaces\Interno\GrupoServiciosInterface;
+use Illuminate\Support\Facades\DB;
 use App\Models\Interno\User;
 use Illuminate\Http\Request;
 use stdClass;
-use DB;
 
 class GrupoServiciosRepository implements GrupoServiciosInterface
 {

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Interno\Personas;
 
 
 use App\Http\Controllers\Controller;
-use App\Repositories\Interno\PersonasRepository;
+use App\src\Repositories\Interno\PersonasRepository;
 use Exception;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,7 +23,7 @@ class PersonasController extends Controller
     {
         try {
 
-            $respuesta = $this->repository->lista();
+            $respuesta = $this->repository->lista(1);
 
 			return response()->json(['data' => $respuesta], 200);
 		}
