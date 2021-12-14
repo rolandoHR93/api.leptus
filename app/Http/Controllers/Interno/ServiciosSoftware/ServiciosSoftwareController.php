@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Interno\ServiciosSoftware;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\Interno\ServiciosRepository;
+use App\src\Repositories\Interno\ServiciosRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Http\Request;
 use Exception;
@@ -22,7 +22,7 @@ class ServiciosSoftwareController extends Controller
     public function lista($key){
 
 		try {
-            $resultados = $this->repository->lista();
+            $resultados = $this->repository->lista(1);
 
 			return response()->json(['data' => $resultados], 200);
 		}

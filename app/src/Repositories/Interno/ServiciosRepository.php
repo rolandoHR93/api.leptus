@@ -1,6 +1,7 @@
 <?php
-namespace App\Repositories\Interno;
+namespace App\src\Repositories\Interno;
 
+use App\src\Interfaces\Interno\ServiciosInterface;
 use App\Models\Interno\ServiciosModel;
 use Illuminate\Http\Request;
 use stdClass;
@@ -9,15 +10,15 @@ use DB;
 class ServiciosRepository implements ServiciosInterface
 {
     /**
-	* Create a new ServiciosRepository composer.
-	* @return void
-	*/
+    * Create a new Interno/ServiciosRepository composer.
+    * @return void
+    */
+    public function search(Request $request){
 
-	public function search(string $id){
-	}
+    }
 
-	public function lista(){
-		$datos = ServiciosModel::where('state', 1)->get();
+    public function lista(string $page){
+        $datos = ServiciosModel::where('state', 1)->get();
 
 		return $datos;
 	}
@@ -79,4 +80,5 @@ class ServiciosRepository implements ServiciosInterface
             ];
         }
 	}
+
 }

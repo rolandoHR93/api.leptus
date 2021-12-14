@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Interno\GrupoServicios;
 
 use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use App\src\Repositories\Interno\GrupoServiciosRepository;
 use Illuminate\Http\Request;
-use App\Repositories\GrupoServiciosRepository;
 use App\Models\GrupoServicios;
 use Exception;
 
@@ -23,7 +23,7 @@ class GrupoServiciosController extends Controller
 
 		try {
             $resultados = $this->grupoRepository->lista($meses);
-			return response()->json($resultados);
+			return response()->json(['data' => $resultados]);
 		}
 		catch (Exception $e) {
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
