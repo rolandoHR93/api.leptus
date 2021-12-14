@@ -41,6 +41,7 @@ class CreateRepositoryCommand extends Command
      */
     public function handle()
     {
+
         $viewComposer=$this->argument('composer');
 
         if ($viewComposer === '' || is_null($viewComposer) || empty($viewComposer)) {
@@ -97,6 +98,7 @@ namespace App\Repositories'.((pathinfo("${viewComposer}.php")['dirname']!= '.')?
 '\\'.pathinfo("${viewComposer}.php")['dirname']:'').';
 
 use App\Models\Interno\User;
+use Illuminate\Http\Request;
 use stdClass;
 use DB;
 
@@ -107,9 +109,26 @@ class '.basename($viewComposer).' implements '.basename($nameFileInterface).'
     * @return void
     */
 
-    public function search(string $id){
+    public function search(Request $request){
 
     }
+
+    public function lista(string $page){
+
+    }
+
+    public function create(Request $request){
+
+    }
+
+    public function update(Request $request, string $id){
+
+    }
+
+    public function delete(string $id){
+
+    }
+
 }';
         return $contents;
     }
@@ -155,7 +174,11 @@ use Illuminate\Http\Request;
 interface '.basename($nameFileInterface).'
 {
 
-    public function search(string $id);
+    public function search(Request $request);
+    public function lista(string $page);
+    public function create(Request $request);
+    public function update(Request $request, string $id);
+    public function delete(string $id);
 
 }';
         return $contents;
