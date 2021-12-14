@@ -1,8 +1,8 @@
 <?php
-namespace App\Repositories\Interno;
+namespace App\Repositories\Externo;
 use Illuminate\Http\Request;
 
-interface UbigeoInterface
+interface MesasInterface
 {
     public function search(Request $request);
     public function lista(string $page);

@@ -1,15 +1,15 @@
 <?php
-namespace App\Repositories\Interno;
+namespace App\Repositories\Externo;
 
 use App\Models\Interno\User;
 use Illuminate\Http\Request;
 use stdClass;
 use DB;
 
-class UbigeoRepository implements UbigeoInterface
+class MesasRepository implements MesasInterface
 {
     /**
-    * Create a new Interno/UbigeoRepository composer.
+    * Create a new Externo/MesasRepository composer.
     * @return void
     */
     public function search(Request $request){
