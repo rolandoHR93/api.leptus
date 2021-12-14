@@ -9,7 +9,7 @@ use App\Helpers\FechaHelper;
 class Roles extends Model
 {
     use HasFactory;
-    protected $table = 'leptus.roles';
+    protected $table = 'users.roles';
 
     protected $primaryKey = 'id';
 

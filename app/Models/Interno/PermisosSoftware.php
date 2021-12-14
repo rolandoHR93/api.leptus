@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class PermisosSoftware extends Model
 {
 	use HasFactory;
-	protected $table = 'leptus.permisos';
+	protected $table = 'users.permisos';
 
 	protected $primaryKey = 'id';
 
