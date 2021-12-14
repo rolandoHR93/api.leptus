@@ -15,4 +15,15 @@ https://leptus-peru.netlify.app/
 
 
 
+----
+[dbo].[migrations]
+[dbo].[password_resets]
+[dbo].[personal_access_tokens]
+[dbo].[users]
+[dbo].[failed_jobs]
+[dbo].[sessions]
+
+----
+
+
 --------------------------
