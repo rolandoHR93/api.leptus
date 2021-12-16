@@ -11,10 +11,10 @@ class ActivarCuentaUsuarioMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $message;
+    private $mensaje;
 
-    public function __construct($message){
-        $this->message = $message;
+    public function __construct($mensaje){
+        $this->mensaje = $mensaje;
     }
 
     /**
@@ -29,7 +29,7 @@ class ActivarCuentaUsuarioMail extends Mailable
         return $this->subject('Test Prueba Mail')
             ->view('emails.pages.Auth.ActivarCuenta')
             ->with([
-                'content' => $this->message,
+                'mensaje' => $this->mensaje,
                 'orderPrice' => 'S/. 1450 ',
             ]);
     }

@@ -7,7 +7,7 @@
 {{-- include('emails.presults.styles1') --}}
 <body>
     <div>
-    Buenas tardes   {{ $orderPrice }} - {{ $content }}
+    Buenas tardes   {{ $orderPrice }} - {{ $mensaje }}
     </div>
     <hr>
     <table border="1">
