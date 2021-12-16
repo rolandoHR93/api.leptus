@@ -52,12 +52,12 @@
         <table cellspacing="0" cellpadding="0" width="600" class="w320">
           <tr>
             <td class="header-lg">
-              You've received an invitation!
+              Bienvenido a Leptus...
             </td>
           </tr>
           <tr>
             <td class="free-text">
-              <span><a href="">@JaneDoe</a></span> has invited you to join Awesome inc!  {{ $orderPrice }} - {{ $mensaje }}
+              <span><a href="">@JaneDoe</a></span> se ha registrado correctamente  {{ $orderPrice }} - {{ $mensaje }}
             </td>
           </tr>
           <tr>
@@ -78,7 +78,7 @@
                             <tr>
                               <td class="user-msg">
                                 "Hey Bob,
-                                here's your invite! Come check out my profile page when you have a chance. You'll love it!"
+                                Bienvenido ....
                               </td>
                             </tr>
                           </table>
