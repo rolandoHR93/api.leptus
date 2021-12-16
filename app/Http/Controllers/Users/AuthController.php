@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Auth\ActivarCuentaUsuarioMail;
 use Symfony\Component\HttpFoundation\Response;
+use App\src\Repositories\Interno\AuthRepository;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\src\Repositories\Interno\AuthRepository;
 use Exception;
 
 class AuthController extends Controller
@@ -32,6 +34,12 @@ class AuthController extends Controller
 			]);
 
             $respuesta = $this->authRepository->register($request->all());
+
+            // Enviar Correo
+            Mail::to('rolando167@hotmail.com')
+				// ->cc('larosatoro979@gmail.com')
+				->bcc('rolandoh00@gmail.com')
+				->send(new ActivarCuentaUsuarioMail('Tester'));
 
 			// ** Crear Token de acceso Personal para el usuario
 			$token = $respuesta->createToken('auth_token')->plainTextToken;
