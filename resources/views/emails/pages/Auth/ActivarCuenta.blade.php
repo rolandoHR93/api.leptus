@@ -57,7 +57,7 @@
           </tr>
           <tr>
             <td class="free-text">
-              <span><a href="">@JaneDoe</a></span> se ha registrado correctamente  {{ $orderPrice }} - {{ $mensaje }}
+              <span><a href="">@ {{ $request->email }}</a></span> se ha registrado correctamente  {{ $orderPrice }}
             </td>
           </tr>
           <tr>
@@ -77,7 +77,7 @@
                             </tr>
                             <tr>
                               <td class="user-msg">
-                                "Hey Bob,
+                                "Hey {{ $request->nombres }},
                                 Bienvenido ....
                               </td>
                             </tr>

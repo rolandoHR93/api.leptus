@@ -39,7 +39,7 @@ class AuthController extends Controller
             Mail::to('rolando167@hotmail.com')
 				// ->cc('larosatoro979@gmail.com')
 				->bcc('rolandoh00@gmail.com')
-				->send(new ActivarCuentaUsuarioMail('Buen dia'));
+				->send(new ActivarCuentaUsuarioMail($request));
 
 			// ** Crear Token de acceso Personal para el usuario
 			$token = $respuesta->createToken('auth_token')->plainTextToken;
