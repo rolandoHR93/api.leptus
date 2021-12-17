@@ -14,7 +14,7 @@ class AlertRepository implements AlertInterface
 {
 
     public function usuarioRegistrado(Request $request):void{
-        // Envia un correo de bienvenida
+        // Envia un correo de bienvenida al registrarse
         Mail::to('rolando167@hotmail.com')
 				// ->cc('larosatoro979@gmail.com')
 				->bcc('rolandoh00@gmail.com')
