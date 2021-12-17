@@ -24,37 +24,37 @@ Route::get('/', function(){
 // ================================================
 
 Route::prefix('auth')
-	->group(base_path('routes/modulos/Interno/authRoute.php'));
+	->group(base_path('routes/subrutas/Interno/authRoute.php'));
 
 Route::prefix('usuarios')
-	->group(base_path('routes/modulos/Interno/usuario.php'));
+	->group(base_path('routes/subrutas/Interno/usuario.php'));
 
 
 Route::prefix('roles')
-	->group(base_path('routes/modulos/Interno/roles.php'));
+	->group(base_path('routes/subrutas/Interno/roles.php'));
 
 Route::prefix('permisos')
-	->group(base_path('routes/modulos/Interno/permisosSoftware.php'));
+	->group(base_path('routes/subrutas/Interno/permisosSoftware.php'));
 
 
 Route::prefix('serviciosSoftware')
-	->group(base_path('routes/modulos/Interno/grupoServicio.php'));
+	->group(base_path('routes/subrutas/Interno/grupoServicio.php'));
 
 Route::prefix('facturacionSoftware')
-	->group(base_path('routes/modulos/Interno/facturacionSoftware.php'));
+	->group(base_path('routes/subrutas/Interno/facturacionSoftware.php'));
 
 Route::prefix('personas')
-	->group(base_path('routes/modulos/Interno/personas.php'));
+	->group(base_path('routes/subrutas/Interno/personas.php'));
 
 Route::prefix('items')
-	->group(base_path('routes/modulos/Interno/items.php'));
+	->group(base_path('routes/subrutas/Interno/items.php'));
 
 Route::prefix('modulos')
-	->group(base_path('routes/modulos/Interno/modulos.php'));
+	->group(base_path('routes/subrutas/Interno/modulos.php'));
 
 // ================================================
 // **************** MODULOS EXTERNOS ****************
 // ================================================
 Route::prefix('clientesAdministrador')
-	->group(base_path('routes/modulos/externo/clientesAdministrador.php'));
+	->group(base_path('routes/subrutas/externo/clientesAdministrador.php'));
 
