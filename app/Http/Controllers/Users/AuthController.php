@@ -10,17 +10,21 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\src\Repositories\Emails\AlertRepository;
 use Exception;
 
 class AuthController extends Controller
 {
 
     protected $authRepository;
+    protected $emailAlertRepository;
 
-    public function __construct(AuthRepository $authRepository)
+    public function __construct(AuthRepository $authRepository
+                        , AlertRepository $emailAlertRepository)
     {
         $this->middleware('verifyApiCode');
         $this->authRepository = $authRepository;
+        $this->emailAlertRepository = $emailAlertRepository;
     }
 
 	public function register(Request $request, $key){
@@ -36,10 +40,7 @@ class AuthController extends Controller
             $respuesta = $this->authRepository->register($request->all());
 
             // Enviar Correo
-            Mail::to('rolando167@hotmail.com')
-				// ->cc('larosatoro979@gmail.com')
-				->bcc('rolandoh00@gmail.com')
-				->send(new ActivarCuentaUsuarioMail($request));
+            $this->emailAlertRepository->usuarioRegistrado($request);
 
 			// ** Crear Token de acceso Personal para el usuario
 			$token = $respuesta->createToken('auth_token')->plainTextToken;
