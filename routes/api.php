@@ -49,6 +49,9 @@ Route::prefix('personas')
 Route::prefix('items')
 	->group(base_path('routes/modulos/Interno/items.php'));
 
+Route::prefix('modulos')
+	->group(base_path('routes/modulos/Interno/modulos.php'));
+
 // ================================================
 // **************** MODULOS EXTERNOS ****************
 // ================================================
