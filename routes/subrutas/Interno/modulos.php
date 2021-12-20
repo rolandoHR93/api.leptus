@@ -12,4 +12,4 @@ Route::put("update/{key}/{id}",  [ModulosController::class, 'update']);
 Route::delete("delete/{key}/{id}",  [ModulosController::class, 'delete']);
 
 
-Route::post("moduloItem/{key}",  [ModulosController::class, 'moduloItem']);
+Route::post("agregarModuloItem/{key}",  [ModulosController::class, 'agregarModuloItem']);

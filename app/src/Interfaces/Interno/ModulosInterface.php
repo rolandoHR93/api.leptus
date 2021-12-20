@@ -10,7 +10,7 @@ interface ModulosInterface
     public function update(Request $request, string $id);
     public function delete(string $id);
 
-    public function moduloItem(Request $request);
+    public function agregarModuloItem(Request $request);
 
 
 }

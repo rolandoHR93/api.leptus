@@ -3,6 +3,7 @@ namespace App\src\Repositories\Interno;
 
 use App\Models\Interno\Modulos;
 use App\src\Interfaces\Interno\ModulosInterface;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use stdClass;
 use DB;
@@ -67,9 +68,16 @@ class ModulosRepository implements ModulosInterface
         }
     }
 
-    public function moduloItem(Request $request)
+    public function agregarModuloItem(Request $request)
     {
-        $modulo = Modulos::find($request->modulo_id);
+        $modulo = Modulos::with('items')->find($request->modulo_id);
+        $item_id = $request->item_id;
+
+        $modulo->items()->attach( $item_id, [
+            'created_by' => $request->created_by,
+            'created_at' => Carbon::now()->format('Y-d-m H:i:s')
+        ]);
+
         return $modulo;
     }
 

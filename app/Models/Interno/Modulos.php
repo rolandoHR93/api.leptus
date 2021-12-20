@@ -33,7 +33,7 @@ class Modulos extends Model
 
     public function items()
     {
-        return $this->belongsToMany(Items::class, 'users.modulo_item', 'id', 'item_id');
+        return $this->belongsToMany(Items::class, 'users.modulo_item', 'modulo_id', 'item_id');
     }
 
 }

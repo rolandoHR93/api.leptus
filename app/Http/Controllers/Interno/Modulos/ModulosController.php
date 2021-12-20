@@ -65,10 +65,10 @@ class ModulosController extends Controller
 		}
     }
 
-    public function moduloItem(Request $request, $key)
+    public function agregarModuloItem(Request $request, $key)
     {
         try {
-            $respuesta = $this->repository->moduloItem($request);
+            $respuesta = $this->repository->agregarModuloItem($request);
 
 			return response()->json(['data' => $respuesta], 200);
 
