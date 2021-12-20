@@ -67,4 +67,10 @@ class ModulosRepository implements ModulosInterface
         }
     }
 
+    public function moduloItem(Request $request)
+    {
+        $modulo = Modulos::find($request->modulo_id);
+        return $modulo;
+    }
+
 }

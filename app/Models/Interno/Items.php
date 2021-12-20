@@ -27,4 +27,9 @@ class Items extends Model
         $function = new FechaHelper();
         return $function->getDateFormat();
     }
+
+    public function modulos()
+    {
+        return $this->belongsToMany(Modulos::class, 'users.modulo_item', 'id', 'modulo_id');
+    }
 }

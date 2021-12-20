@@ -64,4 +64,16 @@ class ModulosController extends Controller
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
 		}
     }
+
+    public function moduloItem(Request $request, $key)
+    {
+        try {
+            $respuesta = $this->repository->moduloItem($request);
+
+			return response()->json(['data' => $respuesta], 200);
+
+        } catch (Exception $e) {
+			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+		}
+    }
 }

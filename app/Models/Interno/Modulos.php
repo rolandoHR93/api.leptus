@@ -10,6 +10,7 @@ class Modulos extends Model
 {
     use HasFactory;
     protected $table = 'users.modulo';
+
     protected $primaryKey = 'id';
 
     protected $fillable = [
@@ -29,4 +30,10 @@ class Modulos extends Model
         $function = new FechaHelper();
         return $function->getDateFormat();
     }
+
+    public function items()
+    {
+        return $this->belongsToMany(Items::class, 'users.modulo_item', 'id', 'item_id');
+    }
+
 }
