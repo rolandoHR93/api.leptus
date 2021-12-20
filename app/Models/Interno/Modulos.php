@@ -8,32 +8,32 @@ use Illuminate\Database\Eloquent\Model;
 
 class Modulos extends Model
 {
-    use HasFactory;
-    protected $table = 'users.modulo';
+	use HasFactory;
+	protected $table = 'users.modulo';
 
-    protected $primaryKey = 'id';
+	protected $primaryKey = 'id';
 
-    protected $fillable = [
-        'nombre',
-        'descripcion',
-        'ruta',
-        'tipo_id',
-        'modulo_id',
-        'state',
-        'created_by',
-        'updated_by',
-        'deleted_by',
-        'deleted_at',
-    ];
+	protected $fillable = [
+		'nombre',
+		'descripcion',
+		'ruta',
+		'tipo_id',
+		'modulo_id',
+		'state',
+		'created_by',
+		'updated_by',
+		'deleted_by',
+		'deleted_at',
+	];
 
-    public function getDateFormat() {
-        $function = new FechaHelper();
-        return $function->getDateFormat();
-    }
+	public function getDateFormat() {
+		$function = new FechaHelper();
+		return $function->getDateFormat();
+	}
 
-    public function items()
-    {
-        return $this->belongsToMany(Items::class, 'users.modulo_item', 'modulo_id', 'item_id');
-    }
+	public function items()
+	{
+		return $this->belongsToMany(Items::class, 'users.modulo_item', 'modulo_id', 'item_id');
+	}
 
 }
