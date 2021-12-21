@@ -11,4 +11,7 @@ interface ServiciosInterface
     public function deleteServicio(string $id);
 
 
+    public function agregarGrupoServicio(Request $request);
+	public function deleteGrupoServicio(Request $request);
+
 }

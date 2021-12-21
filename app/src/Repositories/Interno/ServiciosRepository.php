@@ -3,6 +3,7 @@ namespace App\src\Repositories\Interno;
 
 use App\src\Interfaces\Interno\ServiciosInterface;
 use App\Models\Interno\ServiciosModel;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use stdClass;
 use DB;
@@ -81,4 +82,26 @@ class ServiciosRepository implements ServiciosInterface
         }
 	}
 
+	public function agregarGrupoServicio(Request $request)
+    {
+        $servicio = ServiciosModel::with('gruposervicios')->find($request->servicios_id);
+        $gruposervicios_id = $request->gruposervicios_id;
+
+        $servicio->gruposervicios()->attach( $gruposervicios_id, [
+			'state' => 1,
+			'updated_by' => 1,
+            'created_by' => $request->created_by,
+            'created_at' => Carbon::now()->format('Y-d-m H:i:s')
+        ]);
+
+        return $servicio;
+    }
+
+    public function deleteGrupoServicio(Request $request){
+        $servicio = ServiciosModel::with('gruposervicios')->find($request->servicios_id);
+        $gruposervicios_id = $request->gruposervicios_id;
+
+        $servicio->gruposervicios()->detach($gruposervicios_id);
+        return $servicio;
+    }
 }
