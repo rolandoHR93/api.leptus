@@ -6,23 +6,26 @@ use App\Helpers\FechaHelper;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PermisosSoftware extends Model
+class Grupos extends Model
 {
-	use HasFactory;
-	protected $table = 'users.permisos';
+    use HasFactory;
+
+    protected $table = 'users.grupos';
 
 	protected $primaryKey = 'id';
 
 	protected $fillable = [
+		'grupo',
 		'descripcion',
-		'nombre_clave',
+		'class',
+		'color',
 		'state',
 		'created_by',
 		'updated_by',
 	];
 
 	public function getDateFormat() {
-		$function = new FechaHelper();
-		return $function->getDateFormat();
-	}
+        $function = new FechaHelper();
+        return $function->getDateFormat();
+    }
 }
