@@ -65,4 +65,28 @@ class PersonasController extends Controller
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
 		}
     }
+
+    public function agregarPersonaUser(Request $request, $key)
+    {
+        try {
+            $respuesta = $this->repository->agregarPersonaUser($request);
+
+			return response()->json(['data' => $respuesta], 200);
+
+        } catch (Exception $e) {
+			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+		}
+    }
+
+    public function deletePersonaUser(Request $request, $key){
+        try {
+
+            $respuesta = $this->repository->deletePersonaUser($request);
+
+			return response()->json(['data' => $respuesta], 200);
+		}
+		catch (Exception $e) {
+			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+		}
+    }
 }

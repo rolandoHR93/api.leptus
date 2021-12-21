@@ -10,4 +10,7 @@ interface PersonasInterface
     public function update(Request $request, string $id);
     public function delete(string $id);
 
+    public function agregarPersonaUser(Request $request);
+	public function deletePersonaUser(Request $request);
+
 }

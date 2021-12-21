@@ -2,6 +2,7 @@
 
 namespace App\Models\Interno;
 
+use App\Helpers\FechaHelper;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,6 +24,12 @@ class Persona extends Model
     ];
 
     public function getDateFormat() {
-		return 'Y-d-m H:i:s';
+		$function = new FechaHelper();
+		return $function->getDateFormat();
+	}
+
+    public function users()
+	{
+		return $this->belongsToMany(User::class, 'users.Persona_user', 'id_persona', 'id_user');
 	}
 }

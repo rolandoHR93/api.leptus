@@ -3,6 +3,7 @@ namespace App\src\Repositories\Interno;
 
 use App\src\Interfaces\Interno\PersonasInterface;
 use App\Models\Interno\Persona;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use stdClass;
 use DB;
@@ -67,6 +68,27 @@ class PersonasRepository implements PersonasInterface
                 'msg'=>'fail'
             ];
         }
+    }
+
+    public function agregarPersonaUser(Request $request)
+    {
+        $persona = Persona::with('users')->find($request->id_persona);
+        $id_user = $request->id_user;
+
+        $persona->users()->attach( $id_user, [
+            'created_by' => $request->created_by,
+            'created_at' => Carbon::now()->format('Y-d-m H:i:s')
+        ]);
+
+        return $persona;
+    }
+
+    public function deletePersonaUser(Request $request){
+        $persona = Persona::with('users')->find($request->id_persona);
+        $id_user = $request->id_user;
+
+        $persona->users()->detach($id_user);
+        return $persona;
     }
 
 }
