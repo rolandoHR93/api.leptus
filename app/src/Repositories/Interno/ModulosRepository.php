@@ -81,4 +81,12 @@ class ModulosRepository implements ModulosInterface
         return $modulo;
     }
 
+    public function deleteModuloItem(Request $request){
+        $modulo = Modulos::with('items')->find($request->modulo_id);
+        $item_id = $request->item_id;
+
+        $modulo->items()->detach($item_id);
+        return $modulo;
+    }
+
 }

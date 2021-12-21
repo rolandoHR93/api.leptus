@@ -11,6 +11,7 @@ interface ModulosInterface
 	public function delete(string $id);
 
 	public function agregarModuloItem(Request $request);
+	public function deleteModuloItem(Request $request);
 
 
 }

@@ -76,4 +76,16 @@ class ModulosController extends Controller
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
 		}
     }
+
+    public function deleteModuloItem(Request $request, $key){
+        try {
+
+            $respuesta = $this->repository->deleteModuloItem($request);
+
+			return response()->json(['data' => $respuesta], 200);
+		}
+		catch (Exception $e) {
+			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+		}
+    }
 }
