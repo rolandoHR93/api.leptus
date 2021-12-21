@@ -37,7 +37,7 @@ Route::prefix('permisos')
 	->group(base_path('routes/subrutas/Interno/permisosSoftware.php'));
 
 
-Route::prefix('serviciosSoftware')
+Route::prefix('grupoServiciosSoftware')
 	->group(base_path('routes/subrutas/Interno/grupoServicio.php'));
 
 Route::prefix('facturacionSoftware')
