@@ -70,4 +70,28 @@ class ServiciosSoftwareController extends Controller
 		}
 	}
 
+    public function agregarGrupoServicio(Request $request, $key)
+    {
+        try {
+            $respuesta = $this->repository->agregarGrupoServicio($request);
+
+			return response()->json(['data' => $respuesta], 200);
+
+        } catch (Exception $e) {
+			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+		}
+    }
+
+    public function deleteGrupoServicio(Request $request, $key){
+        try {
+
+            $respuesta = $this->repository->deleteGrupoServicio($request);
+
+			return response()->json(['data' => $respuesta], 200);
+		}
+		catch (Exception $e) {
+			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+		}
+    }
+
 }

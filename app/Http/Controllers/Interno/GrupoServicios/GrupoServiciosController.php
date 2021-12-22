@@ -29,4 +29,5 @@ class GrupoServiciosController extends Controller
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
 		}
 	}
+
 }

@@ -32,4 +32,9 @@ class ServiciosModel extends Model
         $function = new FechaHelper();
         return $function->getDateFormat();
     }
+
+	public function gruposervicios()
+	{
+		return $this->belongsToMany(gruposervicios::class, 'users.grupo_servicios', 'servicios_id', 'gruposervicios_id');
+	}
 }

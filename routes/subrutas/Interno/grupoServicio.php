@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Route;
 //RELACION GRUPO-SERVICIO
 Route::get("/grupoServicioslista/{key}/{meses?}",  [GrupoServiciosController::class, 'lista']);
 
+Route::post("agregarGrupoServicio/{key}",  [ServiciosSoftwareController::class, 'agregarGrupoServicio']);
+Route::delete("deleteGrupoServicio/{key}",  [ServiciosSoftwareController::class, 'deleteGrupoServicio']);
 
 //CRUD GRUPOS(SERVICIO)
 
