@@ -107,7 +107,7 @@ class ModulosRepository implements ModulosInterface
         $modulo = Modulos::with('persona')->find($request->modulo_id);
         $persona_id = $request->persona_id;
 
-        $modulo->items()->detach($persona_id);
+        $modulo->persona()->detach($persona_id);
         return $modulo;
     }
 

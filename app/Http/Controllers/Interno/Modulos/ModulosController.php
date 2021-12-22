@@ -91,7 +91,9 @@ class ModulosController extends Controller
 
     public function agregarModuloPersona(Request $request, $key){
         try {
+            $respuesta = $this->repository->agregarModuloPersona($request);
 
+			return response()->json(['data' => $respuesta], 200);
         } catch (Exception $e) {
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
 		}
@@ -99,7 +101,9 @@ class ModulosController extends Controller
 
     public function deleteModuloPersona(Request $request, $key){
         try {
+            $respuesta = $this->repository->deleteModuloPersona($request);
 
+			return response()->json(['data' => $respuesta], 200);
         } catch (Exception $e) {
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
 		}

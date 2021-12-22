@@ -35,7 +35,7 @@ class Persona extends Model
 
     public function Modulo()
     {
-        return $this->belongsToMany(User::class, 'users.persona_modulo', 'id_persona', 'modulo_id');
+        return $this->belongsToMany(Modulos::class, 'users.persona_modulo', 'persona_id', 'modulo_id');
     }
 
 }
