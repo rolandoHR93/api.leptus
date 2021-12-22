@@ -37,4 +37,5 @@ class Persona extends Model
     {
         return $this->belongsToMany(User::class, 'users.persona_modulo', 'id_persona', 'modulo_id');
     }
+
 }
