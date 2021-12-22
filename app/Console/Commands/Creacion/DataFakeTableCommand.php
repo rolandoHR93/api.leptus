@@ -46,10 +46,10 @@ class DataFakeTableCommand extends Command
         // --------------------
         $modulo = new Modulos();
 
-        for ($i=3; $i < 20; $i++) {
+        for ($i=3; $i < 5; $i++) {
             $modulo->create([
                 'nombre' => "Modulo ${i}"
-                , 'descripcion' => "Descripcion ".Str::random(4)
+                , 'descripcion' => "Descripcion ${i}"
                 , 'tipo_id' => 1
                 , 'created_by' => 1
             ]);
@@ -71,10 +71,10 @@ class DataFakeTableCommand extends Command
         // --------------------
         $modulo = new Modulos();
 
-        for ($i=3; $i < 20; $i++) {
+        for ($i=3; $i < 5; $i++) {
             $modulo->create([
                 'nombre' => "Modulo ${i}"
-                , 'descripcion' => "Descripcion ".Str::random(4)
+                , 'descripcion' => "Descripcion ${i}"
                 , 'tipo_id' => 1
                 , 'created_by' => 1
             ]);
