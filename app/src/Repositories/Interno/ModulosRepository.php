@@ -89,4 +89,26 @@ class ModulosRepository implements ModulosInterface
         return $modulo;
     }
 
+    public function agregarModuloPersona(Request $request)
+    {
+        $modulo = Modulos::with('persona')->find($request->modulo_id);
+        $persona_id = $request->persona_id;
+
+        $modulo->persona()->attach( $persona_id, [
+            'created_by' => $request->created_by,
+            'created_at' => Carbon::now()->format('Y-d-m H:i:s')
+        ]);
+
+        return $modulo;
+    }
+
+    public function deleteModuloPersona(Request $request)
+    {
+        $modulo = Modulos::with('persona')->find($request->modulo_id);
+        $persona_id = $request->persona_id;
+
+        $modulo->items()->detach($persona_id);
+        return $modulo;
+    }
+
 }

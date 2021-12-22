@@ -13,5 +13,7 @@ interface ModulosInterface
 	public function agregarModuloItem(Request $request);
 	public function deleteModuloItem(Request $request);
 
+    public function agregarModuloPersona(Request $request);
+	public function deleteModuloPersona(Request $request);
 
 }
