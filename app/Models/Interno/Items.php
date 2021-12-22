@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Items extends Model
 {
 	use HasFactory;
-	protected $table = 'users.items';
+	protected $table = 'users.ItemsAcceso';
 
 	protected $primaryKey = 'id';
 
