@@ -14,3 +14,6 @@ Route::delete("delete/{key}/{id}",  [ModulosController::class, 'delete']);
 
 Route::post("agregarModuloItem/{key}",  [ModulosController::class, 'agregarModuloItem']);
 Route::delete("deleteModuloItem/{key}",  [ModulosController::class, 'deleteModuloItem']);
+
+Route::post("agregarModuloPersona/{key}",  [ModulosController::class, 'agregarModuloPersona']);
+Route::delete("deleteModuloPersona/{key}",  [ModulosController::class, 'deleteModuloPersona']);

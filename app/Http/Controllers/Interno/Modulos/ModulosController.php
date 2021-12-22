@@ -88,4 +88,21 @@ class ModulosController extends Controller
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
 		}
     }
+
+    public function agregarModuloPersona(Request $request, $key){
+        try {
+
+        } catch (Exception $e) {
+			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+		}
+    }
+
+    public function deleteModuloPersona(Request $request, $key){
+        try {
+
+        } catch (Exception $e) {
+			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+		}
+    }
+
 }
