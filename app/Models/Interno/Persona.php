@@ -32,4 +32,9 @@ class Persona extends Model
 	{
 		return $this->belongsToMany(User::class, 'users.Persona_user', 'id_persona', 'id_user');
 	}
+
+    public function Modulo()
+    {
+        return $this->belongsToMany(User::class, 'users.persona_modulo', 'id_persona', 'modulo_id');
+    }
 }
