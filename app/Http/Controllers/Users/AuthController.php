@@ -62,8 +62,8 @@ class AuthController extends Controller
 		try {
             if(!Auth::attempt($request->only('email', 'password'))){
                 return response()->json([
-                    'message' => 'Invalid login details'
-                ], 401);
+                    'message' => 'Detalles Login Invalidos'
+                ], 404);
             }
 
             $respuesta = $this->authRepository->login($request);
