@@ -2,8 +2,8 @@
 namespace App\src\Repositories\Interno;
 
 use App\src\Interfaces\Interno\UserInterface;
-use App\Models\Interno\User;
 use Illuminate\Http\Request;
+use App\Models\User;
 use stdClass;
 use DB;
 

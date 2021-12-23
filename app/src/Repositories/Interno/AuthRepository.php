@@ -3,8 +3,8 @@ namespace App\src\Repositories\Interno;
 
 use App\src\Interfaces\Interno\AuthInterface;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Interno\User;
 use Illuminate\Http\Request;
+use App\Models\User;
 use stdClass;
 use DB;
 

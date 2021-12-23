@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Interno;
+namespace App\Models;
 
 use App\Helpers\FechaHelper;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
