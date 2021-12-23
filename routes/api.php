@@ -55,6 +55,6 @@ Route::prefix('modulos')
 // ================================================
 // **************** MODULOS EXTERNOS ****************
 // ================================================
-// Route::prefix('clientesAdministrador')
-// 	->group(base_path('routes/subrutas/externo/clientesAdministrador.php'));
+Route::prefix('clientesAdministrador')
+	->group(base_path('routes/subrutas/Externo/clientesAdministrador.php'));
 
