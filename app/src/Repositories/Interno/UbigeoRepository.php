@@ -2,7 +2,7 @@
 namespace App\src\Repositories\Interno;
 
 use App\src\Interfaces\Interno\UbigeoInterface;
-use App\Models\Interno\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use stdClass;
 use DB;

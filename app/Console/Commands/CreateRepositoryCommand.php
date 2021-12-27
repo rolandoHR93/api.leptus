@@ -97,7 +97,7 @@ class CreateRepositoryCommand extends Command
 namespace App\Repositories'.((pathinfo("${viewComposer}.php")['dirname']!= '.')?
 '\\'.pathinfo("${viewComposer}.php")['dirname']:'').';
 
-use App\Models\Interno\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use stdClass;
 use DB;

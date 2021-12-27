@@ -97,7 +97,7 @@ namespace App\src\Repositories'.((pathinfo("${viewComposer}.php")['dirname']!= '
 
 use App\src\Interfaces'.((pathinfo("${nameFileInterface}.php")['dirname']!= '.')?
 '\\'.pathinfo("${nameFileInterface}.php")['dirname']:'').'\\'.basename($nameFileInterface).';
-use App\Models\Interno\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use stdClass;
 use DB;

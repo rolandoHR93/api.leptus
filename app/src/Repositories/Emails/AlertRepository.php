@@ -1,7 +1,7 @@
 <?php
 namespace App\src\Repositories\Emails;
 
-use App\Models\Interno\User;
+use App\Models\User;
 use App\src\Interfaces\Emails\AlertInterface;
 use App\Mail\Auth\ActivarCuentaUsuarioMail;
 use Illuminate\Support\Facades\Mail;

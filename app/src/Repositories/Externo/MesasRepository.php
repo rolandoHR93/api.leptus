@@ -2,7 +2,7 @@
 namespace App\src\Repositories\Externo;
 
 use App\src\Interfaces\Externo\MesasInterface;
-use App\Models\Interno\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use stdClass;
 use DB;

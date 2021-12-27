@@ -2,7 +2,7 @@
 namespace App\src\Repositories\Emails;
 
 use App\src\Interfaces\Emails\InteractionInterface;
-use App\Models\Interno\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use stdClass;
 use DB;
