@@ -16,6 +16,7 @@ class AuthRepository implements AuthInterface
             'nombres'  => $data['nombres'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'state' => 1
             // 'create_at'=> Carbon::now(),
             // 'updated_at'=> Carbon::now(),
         ]);

@@ -27,9 +27,9 @@ class PersonasRepository implements PersonasInterface
         $persona = new Persona(
 			[
 				'nombres' => $request->nombres,
-                'Apellido_paterno' => $request->apellido_paterno,
-                'Apellido_materno' => $request->apellido_materno,
-                'search' => $request->search,
+                'apellido_paterno' => $request->apellido_paterno,
+                'apellido_materno' => $request->apellido_materno,
+                'search' => $request->nombres.' '.$request->apellido_paterno.' '.$request->apellido_materno,
 				'state' => 1,
 				'created_by' => 1,
 				'updated_by' => 1

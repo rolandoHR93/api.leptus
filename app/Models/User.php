@@ -23,6 +23,8 @@ class User extends Authenticatable
 		'password',
 		'last_signIn_at',
 		'state',
+        'created_by',
+        'updated_by',
 	];
 
 	protected $hidden = [

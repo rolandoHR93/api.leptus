@@ -4,13 +4,14 @@ namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
 use App\Mail\Auth\ActivarCuentaUsuarioMail;
-use Symfony\Component\HttpFoundation\Response;
+use App\src\Repositories\Interno\PersonasRepository;
+use App\src\Repositories\Emails\AlertRepository;
 use App\src\Repositories\Interno\AuthRepository;
+use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\src\Repositories\Emails\AlertRepository;
 use Exception;
 
 class AuthController extends Controller
@@ -18,13 +19,16 @@ class AuthController extends Controller
 
     protected $authRepository;
     protected $emailAlertRepository;
+    protected $personRepository;
 
     public function __construct(AuthRepository $authRepository
-                        , AlertRepository $emailAlertRepository)
+                        , AlertRepository $emailAlertRepository
+                        , PersonasRepository $personRepository)
     {
         $this->middleware('verifyApiCode');
         $this->authRepository = $authRepository;
         $this->emailAlertRepository = $emailAlertRepository;
+        $this->personRepository = $personRepository;
     }
 
 	public function register(Request $request, $key){
@@ -38,7 +42,7 @@ class AuthController extends Controller
 			]);
 
             $respuesta = $this->authRepository->register($request->all());
-
+            $persona = $this->personRepository->create($request);
             // Enviar Correo
             $this->emailAlertRepository->usuarioRegistrado($request);
 
