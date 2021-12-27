@@ -43,6 +43,8 @@ class AuthController extends Controller
 
             $respuesta = $this->authRepository->register($request->all());
             $persona = $this->personRepository->create($request);
+            // $respuesta = $this->personRepository->agregarPersonaUser($request);
+
             // Enviar Correo
             $this->emailAlertRepository->usuarioRegistrado($request);
 
