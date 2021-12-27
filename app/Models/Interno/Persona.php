@@ -3,6 +3,7 @@
 namespace App\Models\Interno;
 
 use App\Helpers\FechaHelper;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
