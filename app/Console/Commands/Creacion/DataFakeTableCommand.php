@@ -46,7 +46,7 @@ class DataFakeTableCommand extends Command
         // --------------------
         $modulo = new Modulos();
 
-        for ($i=3; $i < 5; $i++) {
+        for ($i=1; $i < 3; $i++) {
             $modulo->create([
                 'nombre' => "Modulo ${i}"
                 , 'descripcion' => "Descripcion ${i}"
@@ -71,7 +71,7 @@ class DataFakeTableCommand extends Command
         // --------------------
         $modulo = new Modulos();
 
-        for ($i=3; $i < 5; $i++) {
+        for ($i=1; $i < 3; $i++) {
             $modulo->create([
                 'nombre' => "Modulo ${i}"
                 , 'descripcion' => "Descripcion ${i}"
