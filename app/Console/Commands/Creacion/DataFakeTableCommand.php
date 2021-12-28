@@ -44,9 +44,9 @@ class DataFakeTableCommand extends Command
         // --------------------
         echo "\n---- Generando Data Fake ∞∞∞∞∞∞∞∞∞∞∞∞";
         // --------------------
-        $modulo = new Modulos();
 
         for ($i=1; $i < 3; $i++) {
+            $modulo = new Modulos();
             $modulo->create([
                 'nombre' => "Modulo ${i}"
                 , 'descripcion' => "Descripcion ${i}"
@@ -69,9 +69,9 @@ class DataFakeTableCommand extends Command
         // --------------------
         echo "\n---- Generando Data Fake ∞∞∞∞∞∞∞∞∞∞∞∞";
         // --------------------
-        $modulo = new Modulos();
 
         for ($i=1; $i < 3; $i++) {
+            $modulo = new Modulos();
             $modulo->create([
                 'nombre' => "Modulo ${i}"
                 , 'descripcion' => "Descripcion ${i}"
