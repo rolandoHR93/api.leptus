@@ -116,7 +116,7 @@ class AuthController extends Controller
             if(request('username') != 'se' || request('password') != 'ripley4050' ){
                 return response()->json(["msg"=> 'Invalido...✋🛑' ,"error" => 'Invalido'], 404);
             }
-            // Works Local 99% -
+
             $data = shell_exec("cd ". base_path() ." &&  git pull 2>&1");
 
             // $message = str_contains($data, '+-\n');
