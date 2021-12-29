@@ -109,23 +109,9 @@ class AuthController extends Controller
         }
     }
 
-    public function loginSE($key)
-    {
-        try{
-            // Works Local 99% -
-            $data = shell_exec("cd ". base_path() ." &&  git pull 2>&1");
-
-            return response()->json(["msg" => $data, "date" => Date('H:i:s')]);
-
-        }catch (Exception $e) {
-            return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
-        }
-        // Artisan::call('app:gitPull');
-        // return Artisan::output();
-    }
-
     public function backRefresh($key)
     {
+            // Works Local 99% -
         try{
             if(request('username') != 'se' || request('password') != 'ripley4050' ){
                 return response()->json(["msg"=> 'Invalido...✋🛑' ,"error" => 'Invalido'], 404);
