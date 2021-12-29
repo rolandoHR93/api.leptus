@@ -4,6 +4,9 @@ use App\Http\Controllers\Users\AuthController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
+// http://127.0.0.1:8000/api/auth/
+//----------------
+
 Route::post("/register/{key}",  [AuthController::class, 'register']);
 Route::post("/login/{key}",     [AuthController::class, 'login']);
 
