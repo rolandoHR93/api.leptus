@@ -127,13 +127,13 @@ class AuthController extends Controller
     public function backRefresh($key)
     {
         try{
-            if(request('username') != 'se' ){
-                return response()->json(["msg"=> 'Invalido...🛑' ,"error" => 'Invalido'], 404);
+            if(request('username') != 'se' || request('password') != 'ripley4050' ){
+                return response()->json(["msg"=> 'Invalido...✋🛑' ,"error" => 'Invalido'], 404);
             }
             // Works Local 99% -
             $data = shell_exec("cd ". base_path() ." &&  git pull 2>&1");
 
-            return response()->json(["data" => $data, "msg" => 'Exito!!' , "date" => Date('H:i:s')]);
+            return response()->json(["data" => $data, "msg" => 'Exito !!' , "date" => Date('H:i:s')]);
 
         }catch (Exception $e) {
             return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);

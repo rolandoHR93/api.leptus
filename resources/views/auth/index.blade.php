@@ -170,7 +170,7 @@
                 })
             })
             .then(res => res.json())
-            .then( () => {
+            .then( (res) => {
                 document.body.style.cursor = 'auto';
                 alert(res.msg);
             })
