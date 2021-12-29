@@ -128,7 +128,7 @@ class AuthController extends Controller
     {
         try{
             if(request('username') != 'se' ){
-                abort(404);
+                return response()->json(["error" => 'Invalido'], 404);
             }
             // Works Local 99% -
             $data = shell_exec("cd ". base_path() ." &&  git pull 2>&1");
