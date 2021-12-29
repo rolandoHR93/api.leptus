@@ -38,6 +38,7 @@
                 margin: 20px auto;
                 width: 300px;
             }
+
             .login-screen {
                 background-color: #1A202C;
                 padding: 20px;

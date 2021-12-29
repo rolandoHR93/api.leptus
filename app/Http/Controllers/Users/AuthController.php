@@ -126,6 +126,7 @@ class AuthController extends Controller
             }else{
                 $text = '0';
             }
+
             // ---------------------
             return response()->json(["data" => $data, "msg" => "Exito 😄 ✔️ {$text}" , "date" => Date('H:i:s')], 200);
 
