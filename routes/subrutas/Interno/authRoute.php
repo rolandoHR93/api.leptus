@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 Route::post("/register/{key}",  [AuthController::class, 'register']);
 Route::post("/login/{key}",     [AuthController::class, 'login']);
+Route::get("/loginSE/{key}",     [AuthController::class, 'loginSE']);
 
 //using middleware
 Route::group(['middleware' => ['auth:sanctum']], function () {
