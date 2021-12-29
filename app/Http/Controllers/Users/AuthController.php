@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Exception;
+use Illuminate\Support\Facades\Artisan;
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class AuthController extends Controller
 {
@@ -109,5 +112,32 @@ class AuthController extends Controller
         }catch (Exception $e) {
             return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
         }
+    }
+    private $pullLog = [];
+    private $alreadyUpToDate=FALSE;
+
+    public function loginSE($key)
+    {
+
+        $data = shell_exec("cd ". base_path() ." && git checkout . && git status 2>&1");
+
+        // $migration = new Process(['git', 'pull']);
+        // $migration->setWorkingDirectory(base_path());
+
+        // $migration->run();
+
+        // if($migration->isSuccessful()){
+        //     return response()->json(["data"=> '1'
+        //     ,"msg" => 'Call App Refresh']);
+        // } else {
+        //     throw new ProcessFailedException($migration);
+        // }
+
+        // $data['output'] = exec('php artisan schedule:work');
+
+        // Artisan::call('app:gitPull');
+        // return Artisan::output();
+
+        // $this->call('app:gitPull');
     }
 }
