@@ -172,7 +172,7 @@
             .then(res => res.json())
             .then( () => {
                 document.body.style.cursor = 'auto';
-                alert('Login existoso!!');
+                alert(res.msg);
             })
             .catch(function(error) {
                 alert('Hubo un problema con la petición Fetch:' + error.message);

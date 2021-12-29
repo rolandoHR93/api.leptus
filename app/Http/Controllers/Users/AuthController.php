@@ -128,12 +128,12 @@ class AuthController extends Controller
     {
         try{
             if(request('username') != 'se' ){
-                return response()->json(["error" => 'Invalido'], 404);
+                return response()->json(["msg"=> 'Invalido...🛑' ,"error" => 'Invalido'], 404);
             }
             // Works Local 99% -
             $data = shell_exec("cd ". base_path() ." &&  git pull 2>&1");
 
-            return response()->json(["msg" => $data, "date" => Date('H:i:s')]);
+            return response()->json(["data" => $data, "msg" => 'Exito!!' , "date" => Date('H:i:s')]);
 
         }catch (Exception $e) {
             return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
