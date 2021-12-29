@@ -120,9 +120,9 @@ class AuthController extends Controller
             $data = shell_exec("cd ". base_path() ." &&  git pull 2>&1");
 
             // $message = str_contains($data, '+-\n');
-            $start = strrpos($data, '+-')?:0;
+            $start = strrpos($data, 'changed')?:0;
             if($start != false){
-                $text = substr($data, $start);
+                $text = substr($data, $start-15);
             }else{
                 $text = '0';
             }
