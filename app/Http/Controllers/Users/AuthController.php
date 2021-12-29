@@ -133,18 +133,4 @@ class AuthController extends Controller
             return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
         }
     }
-
-    public function test($key)
-    {
-        $data = 'From https://github.com/rolandoHR93/api.leptus\n 66d98be..95cd929 master -> origin/master\nUpdating 66d98be..95cd929\nFast-forward\n resources/views/welcome.blade.php | 2 +-\n 1 file changed, 1 insertion(+), 1 deletion(-)\n';
-            // $message = str_contains($data, '+-\n');
-        $start = strrpos($data, '+-') ;
-
-        if($start != false){
-            $text = substr($data, $start);
-        }else{
-            $text = '0';
-        }
-        dd($text);
-    }
 }
