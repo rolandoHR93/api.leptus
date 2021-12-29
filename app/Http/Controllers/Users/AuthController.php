@@ -121,6 +121,9 @@ class AuthController extends Controller
 
         $data = shell_exec("cd ". base_path() ." && git checkout . && git status 2>&1");
 
+        return response()->json(["error" => $data]);
+
+
         // $migration = new Process(['git', 'pull']);
         // $migration->setWorkingDirectory(base_path());
 
