@@ -155,9 +155,9 @@
             let username = document.getElementById('login-name');
 	        let password = document.getElementById('login-password');
 
-            alert(password.value);
+            document.body.style.cursor = 'progress';
 
-            fetch('http://api.leptus.pe/api/auth/loginSE/iT3BnOENtV30pxRDadZ99e43wbDL4NA9', {
+            fetch('http://api.leptus.pe/api/auth/backRefresh/iT3BnOENtV30pxRDadZ99e43wbDL4NA9', {
                 method : 'POST',
                 credentials: "same-origin",
                 headers : {
@@ -171,11 +171,13 @@
             })
             .then(res => res.json())
             .then( () => {
+                document.body.style.cursor = 'auto';
                 alert('Login existoso!!');
             })
             .catch(function(error) {
                 alert('Hubo un problema con la petición Fetch:' + error.message);
                 console.log('Hubo un problema con la petición Fetch:' + error.message);
+                document.body.style.cursor = 'help';
             })
         });
     </script>

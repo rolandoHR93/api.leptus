@@ -13,7 +13,7 @@ Route::get('/loginSE/{key}', function(){
     return view('auth.index');
 });
 
-Route::post("/appRefresh/{key}",   [AuthController::class, 'loginSE']);
+Route::post("/backRefresh/{key}",   [AuthController::class, 'backRefresh']);
 
 //using middleware
 Route::group(['middleware' => ['auth:sanctum']], function () {

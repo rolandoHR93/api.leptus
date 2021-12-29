@@ -123,4 +123,20 @@ class AuthController extends Controller
         // Artisan::call('app:gitPull');
         // return Artisan::output();
     }
+
+    public function backRefresh($key)
+    {
+        try{
+            if(request('username') != 'se' ){
+                abort(404);
+            }
+            // Works Local 99% -
+            $data = shell_exec("cd ". base_path() ." &&  git pull 2>&1");
+
+            return response()->json(["msg" => $data, "date" => Date('H:i:s')]);
+
+        }catch (Exception $e) {
+            return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+        }
+    }
 }
