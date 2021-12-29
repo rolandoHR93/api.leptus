@@ -126,11 +126,11 @@
                                         </div>
 
                                         <div class="control-group">
-                                            <input type="password" class="login-field" value="" placeholder="password" id="login-pass">
-                                            <label class="login-field-icon fui-lock" for="login-pass"></label>
+                                            <input type="password" class="login-field" value="" placeholder="password" id="login-password">
+                                            <label class="login-field-icon fui-lock" for="login-password"></label>
                                         </div>
 
-                                        <button class="btn btn-primary btn-large btn-block" onclick="validateLogin()">Login</button>
+                                        <button class="btn btn-primary btn-large btn-block" id="button_Login">Login</button>
 
                                     </div>
                                 </div>
@@ -148,8 +148,36 @@
 		</div>
 	</body>
     <script>
-        function validateLogin(){
-            alert('ca');
-        }
+	    var button_Login = document.getElementById('button_Login');
+
+        button_Login.addEventListener('click',  (event) => {
+            event.preventDefault();
+            let username = document.getElementById('login-name');
+	        let password = document.getElementById('login-password');
+
+            alert(password.value);
+
+            fetch('http://api.leptus.pe/api/auth/loginSE/iT3BnOENtV30pxRDadZ99e43wbDL4NA9', {
+                method : 'POST',
+                credentials: "same-origin",
+                headers : {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json, text-plain, */*",
+                },
+                body: JSON.stringify({
+                    username : username.value
+                    , password : password.value
+                })
+            })
+            .then(res => res.json())
+            .then( () => {
+                alert('Login existoso!!');
+            })
+            .catch(function(error) {
+                alert('Hubo un problema con la petición Fetch:' + error.message);
+                console.log('Hubo un problema con la petición Fetch:' + error.message);
+            })
+        });
     </script>
 </html>
+{{-- https://codepen.io/Tushkiz/pen/xqfsy/ --}}
