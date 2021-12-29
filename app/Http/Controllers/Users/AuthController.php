@@ -113,34 +113,19 @@ class AuthController extends Controller
             return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
         }
     }
-    private $pullLog = [];
-    private $alreadyUpToDate=FALSE;
 
     public function loginSE($key)
     {
+        try{
+            // Works Local 99% -
+            $data = shell_exec("cd ". base_path() ." &&  git pull 2>&1");
 
-        $data = shell_exec("cd ". base_path() ." && git checkout . && git status 2>&1");
+            return response()->json(["msg" => $data]);
 
-        return response()->json(["error" => $data]);
-
-
-        // $migration = new Process(['git', 'pull']);
-        // $migration->setWorkingDirectory(base_path());
-
-        // $migration->run();
-
-        // if($migration->isSuccessful()){
-        //     return response()->json(["data"=> '1'
-        //     ,"msg" => 'Call App Refresh']);
-        // } else {
-        //     throw new ProcessFailedException($migration);
-        // }
-
-        // $data['output'] = exec('php artisan schedule:work');
-
+        }catch (Exception $e) {
+            return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+        }
         // Artisan::call('app:gitPull');
         // return Artisan::output();
-
-        // $this->call('app:gitPull');
     }
 }
