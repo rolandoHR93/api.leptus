@@ -15,6 +15,7 @@ Route::get('/loginSE/{key}', function(){
 });
 
 Route::post("/backRefresh/{key}",   [AuthController::class, 'backRefresh']);
+Route::get("/test/{key}",   [AuthController::class, 'test']);
 
 //using middleware
 Route::group(['middleware' => ['auth:sanctum']], function () {

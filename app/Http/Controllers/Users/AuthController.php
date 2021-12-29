@@ -119,10 +119,32 @@ class AuthController extends Controller
             // Works Local 99% -
             $data = shell_exec("cd ". base_path() ." &&  git pull 2>&1");
 
-            return response()->json(["data" => $data, "msg" => 'Exito 😄 ✔️!!' , "date" => Date('H:i:s')], 200);
+            // $message = str_contains($data, '+-\n');
+            $start = strrpos($data, '+-')?:0;
+            if($start != false){
+                $text = substr($data, $start);
+            }else{
+                $text = '0';
+            }
+            // ---------------------
+            return response()->json(["data" => $data, "msg" => "Exito 😄 ✔️ {$text}" , "date" => Date('H:i:s')], 200);
 
         }catch (Exception $e) {
             return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
         }
+    }
+
+    public function test($key)
+    {
+        $data = 'From https://github.com/rolandoHR93/api.leptus\n 66d98be..95cd929 master -> origin/master\nUpdating 66d98be..95cd929\nFast-forward\n resources/views/welcome.blade.php | 2 +-\n 1 file changed, 1 insertion(+), 1 deletion(-)\n';
+            // $message = str_contains($data, '+-\n');
+        $start = strrpos($data, '+-') ;
+
+        if($start != false){
+            $text = substr($data, $start);
+        }else{
+            $text = '0';
+        }
+        dd($text);
     }
 }
