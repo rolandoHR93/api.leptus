@@ -133,7 +133,7 @@ class AuthController extends Controller
             // Works Local 99% -
             $data = shell_exec("cd ". base_path() ." &&  git pull 2>&1");
 
-            return response()->json(["data" => $data, "msg" => 'Exito 😄 ✔️!!' , "date" => Date('H:i:s')]);
+            return response()->json(["data" => $data, "msg" => 'Exito 😄 ✔️!!' , "date" => Date('H:i:s')], 200);
 
         }catch (Exception $e) {
             return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
