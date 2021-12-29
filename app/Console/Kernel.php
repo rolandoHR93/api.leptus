@@ -30,7 +30,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->everyTenMinutes();
         // $schedule->command('inspire')->everyThirtyMinutes();
 
-        $schedule->command('app:gitPull')->everyTenMinutes();
+        // $schedule->command('app:gitPull')->everyTenMinutes();
     }
 
     /**
