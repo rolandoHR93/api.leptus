@@ -39,7 +39,7 @@
                 width: 300px;
             }
             .login-screen {
-                background-color: #FFF;
+                background-color: #1A202C;
                 padding: 20px;
                 border-radius: 5px
             }
@@ -130,7 +130,7 @@
                                             <label class="login-field-icon fui-lock" for="login-pass"></label>
                                         </div>
 
-                                        <button class="btn btn-primary btn-large btn-block" onclick="validateLogin()">login</button>
+                                        <button class="btn btn-primary btn-large btn-block" onclick="validateLogin()">Login</button>
 
                                     </div>
                                 </div>
