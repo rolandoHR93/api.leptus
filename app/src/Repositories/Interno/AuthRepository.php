@@ -13,7 +13,7 @@ use stdClass;
 class AuthRepository implements AuthInterface
 {
 
-    public function getRegisterHome(Request $request){
+    public function getRegisterHome(Request $request):null|array{
         $departamentos = "exec [Listar].[Departamento]";
         $sexos = "exec [Listar].[Sexo]";
         $TipoDocPersona = "exec [Listar].[TipoDocPersona]";
@@ -34,7 +34,6 @@ class AuthRepository implements AuthInterface
 
         );
 
-        return $sexos;
     }
 
     public function register(array $data){
