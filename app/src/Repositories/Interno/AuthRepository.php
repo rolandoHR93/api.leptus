@@ -14,11 +14,19 @@ class AuthRepository implements AuthInterface
 {
 
     public function getRegisterHome(Request $request){
-        $prequery = "exec [Listar].[Departamento]";
+        $departamentos = "exec [Listar].[Departamento]";
+        $sexos = "exec [Listar].[Sexo]";
+        $TipoDocPersona = "exec [Listar].[TipoDocPersona]";
+        $TipoDocEmpresa = "exec [Listar].[TipoDocEmpresa]";
 
-        $resultados = DB::select($prequery);
-        return $resultados;
+        // ------------
+        $departamentos = DB::select($departamentos);
+        $sexos = DB::select($sexos);
+        $TipoDocPersona = DB::select($TipoDocPersona);
+        $TipoDocEmpresa = DB::select($TipoDocEmpresa);
 
+        // ------------
+        return $sexos;
     }
 
     public function register(array $data){

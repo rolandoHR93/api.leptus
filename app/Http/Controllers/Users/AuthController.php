@@ -113,7 +113,8 @@ class AuthController extends Controller
     {
         try{
             $respuesta =  $this->authRepository->getRegisterHome($request);
-            return $respuesta;
+
+            return response()->json(["data" => $respuesta], 200);
 
         }catch (Exception $e) {
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
