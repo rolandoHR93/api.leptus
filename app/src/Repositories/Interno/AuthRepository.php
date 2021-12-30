@@ -26,6 +26,14 @@ class AuthRepository implements AuthInterface
         $TipoDocEmpresa = DB::select($TipoDocEmpresa);
 
         // ------------
+        return array(
+           'departamentos'  => $departamentos,
+           'sexos'  =>  $sexos,
+           'TipoDocPersona'  =>  $TipoDocPersona,
+           'TipoDocEmpresa'  =>  $TipoDocEmpresa,
+
+        );
+
         return $sexos;
     }
 
