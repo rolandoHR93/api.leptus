@@ -7,5 +7,6 @@ interface AuthInterface
     public function register(array $data);
     public function login(object $data);
     public function signout();
+    public function getRegisterHome(Request $request);
 
 }

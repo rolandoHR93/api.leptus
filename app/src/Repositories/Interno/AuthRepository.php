@@ -4,14 +4,23 @@ namespace App\src\Repositories\Interno;
 use App\Models\Interno\Persona;
 use App\src\Interfaces\Interno\AuthInterface;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Carbon\Carbon;
 use stdClass;
-use DB;
 
 class AuthRepository implements AuthInterface
 {
+
+    public function getRegisterHome(Request $request){
+        $prequery = "exec [Listar].[Departamento]";
+
+        $resultados = DB::select($prequery);
+        return $resultados;
+
+    }
+
     public function register(array $data){
 
         $user = User::create([

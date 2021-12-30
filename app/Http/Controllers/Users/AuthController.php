@@ -109,6 +109,17 @@ class AuthController extends Controller
         }
     }
 
+    public function getRegisterHome(Request $request, $key)
+    {
+        try{
+            $respuesta =  $this->authRepository->getRegisterHome($request);
+            return $respuesta;
+
+        }catch (Exception $e) {
+			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+		}
+    }
+
     public function backRefresh($key)
     {
             // Works Local 99% -

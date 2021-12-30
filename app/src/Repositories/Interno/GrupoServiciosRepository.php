@@ -11,7 +11,7 @@ use stdClass;
 class GrupoServiciosRepository implements GrupoServiciosInterface
 {
     public function lista(int $meses=1){
-        $prequery = "exec [SP_LISTAR].[LISTADO_PRECIO_SERVICIOS] ${meses}";
+        $prequery = "exec [Listar].[Precio_servicios] ${meses}";
 
         $resultados = DB::select($prequery);
         $datosProcesados = $this->procesarDatosJSon( $resultados);

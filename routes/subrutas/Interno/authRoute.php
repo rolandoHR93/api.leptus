@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 // http://127.0.0.1:8000/api/auth/
 //----------------
 
+Route::get("/getRegisterHome/{key}",  [AuthController::class, 'getRegisterHome']);
 Route::post("/register/{key}",  [AuthController::class, 'register']);
 Route::post("/login/{key}",     [AuthController::class, 'login']);
 
