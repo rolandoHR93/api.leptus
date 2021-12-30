@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Users\AuthController;
+use App\Http\Controllers\Config\AppController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ Route::get('/loginSE/{key}', function(){
     return view('auth.index');
 });
 
-Route::post("/backRefresh/{key}",   [AuthController::class, 'backRefresh']);
+Route::post("/backRefresh/{key}",   [AppController::class, 'backRefresh']);
 
 //using middleware
 Route::group(['middleware' => ['auth:sanctum']], function () {
