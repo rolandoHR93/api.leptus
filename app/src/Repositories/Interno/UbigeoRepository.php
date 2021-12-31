@@ -1,6 +1,7 @@
 <?php
 namespace App\src\Repositories\Interno;
 
+use App\Models\Interno\Ubigeo;
 use App\src\Interfaces\Interno\UbigeoInterface;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -18,19 +19,9 @@ class UbigeoRepository implements UbigeoInterface
     }
 
     public function lista(string $page){
+        $ubigeo = Ubigeo::all();
 
-    }
-
-    public function create(Request $request){
-
-    }
-
-    public function update(Request $request, string $id){
-
-    }
-
-    public function delete(string $id){
-
+        return $ubigeo;
     }
 
 }

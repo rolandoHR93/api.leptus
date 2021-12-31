@@ -8,14 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Ubigeo extends Model
 {
     use HasFactory;
-    protected $table = 'dbo.nombre';
-    protected $primaryKey = 'id';
+    protected $table = 'dbo.Ubigeo';
+    protected $primaryKey = 'UNION';
 
     protected $fillable = [
-        'state',
-        'created_by',
-        'updated_by',
-        'deleted_by',
-        'deleted_at',
+        'COD_DEPARTAMENTO',
+        'COD_PROVINCIA',
+        'COD_DISTRITO',
+        'UNION',
+        'DEPARTAMENTO',
+        'PROVINCIA',
+        'DISTRITO',
     ];
 }
