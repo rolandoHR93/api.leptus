@@ -27,3 +27,14 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::post('/sign-out', [AuthController::class, 'signout']);
 });
+
+
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->name('verification.notice');
+
+Route::get('/forgot-password', function () {
+    return view('auth.forgot-password');
+})->name('password.request');
+
+
