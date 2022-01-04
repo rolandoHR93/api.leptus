@@ -91,6 +91,7 @@ class AuthController extends Controller
     public function activateAccount($key)
     {
         try {
+            $email = request('email');
 
 		}catch (Exception $e) {
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
