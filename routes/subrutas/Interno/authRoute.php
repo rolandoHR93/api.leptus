@@ -11,6 +11,9 @@ use Illuminate\Http\Request;
 Route::get("/getRegisterHome/{key}",  [AuthController::class, 'getRegisterHome']);
 Route::post("/register/{key}",  [AuthController::class, 'register']);
 Route::post("/login/{key}",     [AuthController::class, 'login']);
+Route::post("/email/verify",     [AuthController::class, 'emailVerifyUser']);
+Route::post("/forgot-password",     [AuthController::class, 'forgotPassword']);
+
 
 Route::get('/loginSE/{key}', function(){
     return view('auth.index');
@@ -28,13 +31,5 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/sign-out', [AuthController::class, 'signout']);
 });
 
-
-Route::get('/email/verify', function () {
-    return view('auth.verify-email');
-})->name('verification.notice');
-
-Route::get('/forgot-password', function () {
-    return view('auth.forgot-password');
-})->name('password.request');
 
 

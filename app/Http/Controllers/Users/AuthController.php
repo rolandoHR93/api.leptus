@@ -88,6 +88,16 @@ class AuthController extends Controller
 		}
 	}
 
+    public function emailVerifyUser($key)
+    {
+
+    }
+
+    public function forgotPassword($key)
+    {
+
+    }
+
     public function userinfo(Request $request){
 		try {
 			return $request->user();
