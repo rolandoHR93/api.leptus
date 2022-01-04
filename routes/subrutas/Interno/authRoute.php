@@ -17,10 +17,7 @@ Route::post("/forgot-password",     [ForgotPasswordController::class, 'forgotPas
 Route::post("/change-password",     [ForgotPasswordController::class, 'changePassword']);
 
 
-Route::get('/loginSE/{key}', function(){
-    return view('auth.index');
-});
-
+Route::get('/loginSE/{key}', function(){   return view('auth.index'); });
 Route::post("/backRefresh/{key}",   [AppController::class, 'backRefresh']);
 
 //using middleware
