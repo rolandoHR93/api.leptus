@@ -90,12 +90,20 @@ class AuthController extends Controller
 
     public function emailVerifyUser($key)
     {
+        try {
 
+		}catch (Exception $e) {
+			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+		}
     }
 
     public function forgotPassword($key)
     {
+        try {
 
+		}catch (Exception $e) {
+			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+		}
     }
 
     public function userinfo(Request $request){
