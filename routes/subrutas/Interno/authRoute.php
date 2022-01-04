@@ -11,8 +11,9 @@ use Illuminate\Http\Request;
 Route::get("/getRegisterHome/{key}",  [AuthController::class, 'getRegisterHome']);
 Route::post("/register/{key}",  [AuthController::class, 'register']);
 Route::post("/login/{key}",     [AuthController::class, 'login']);
-Route::post("/email/verify",     [AuthController::class, 'emailVerifyUser']);
+Route::post("/activate-account",     [AuthController::class, 'activateAccount']);
 Route::post("/forgot-password",     [AuthController::class, 'forgotPassword']);
+Route::post("/change-password",     [AuthController::class, 'changePassword']);
 
 
 Route::get('/loginSE/{key}', function(){
