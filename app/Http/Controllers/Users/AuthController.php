@@ -98,30 +98,6 @@ class AuthController extends Controller
 		}
     }
 
-    public function forgotPassword($key)
-    {
-        try {
-            $email = request('email');
-
-            // Envia Correo Link para ingresar nueva Password
-
-		}catch (Exception $e) {
-			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
-		}
-    }
-
-    public function changePassword($key)
-    {
-        try {
-            $email = request('email');
-            $password = request('password');
-
-
-		}catch (Exception $e) {
-			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
-		}
-    }
-
     public function userinfo(Request $request){
 		try {
 			return $request->user();

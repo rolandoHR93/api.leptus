@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Interno\ForgotPassword\ForgotPasswordController;
 use App\Http\Controllers\Users\AuthController;
 use App\Http\Controllers\Config\AppController;
 use Illuminate\Support\Facades\Route;
@@ -12,8 +13,8 @@ Route::get("/getRegisterHome/{key}",  [AuthController::class, 'getRegisterHome']
 Route::post("/register/{key}",  [AuthController::class, 'register']);
 Route::post("/login/{key}",     [AuthController::class, 'login']);
 Route::post("/activate-account",     [AuthController::class, 'activateAccount']);
-Route::post("/forgot-password",     [AuthController::class, 'forgotPassword']);
-Route::post("/change-password",     [AuthController::class, 'changePassword']);
+Route::post("/forgot-password",     [ForgotPasswordController::class, 'forgotPassword']);
+Route::post("/change-password",     [ForgotPasswordController::class, 'changePassword']);
 
 
 Route::get('/loginSE/{key}', function(){
