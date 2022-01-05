@@ -3,10 +3,10 @@ namespace App\src\Repositories\Interno;
 
 use App\Models\Interno\Ubigeo;
 use App\src\Interfaces\Interno\UbigeoInterface;
-use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Models\User;
 use stdClass;
-use DB;
 
 class UbigeoRepository implements UbigeoInterface
 {
@@ -22,6 +22,21 @@ class UbigeoRepository implements UbigeoInterface
         $ubigeo = Ubigeo::all();
 
         return $ubigeo;
+    }
+
+    public function getProvincias(string $departamentoID)
+    {
+        $departamentos = "exec [Listar].[Provincia] '${departamentoID}'";
+        $departamentos = DB::select($departamentos);
+
+        return $departamentos;
+    }
+
+    public function getDistritos(string $departamentoID, string $provinciaID)
+    {
+        $distritos = "exec [Listar].[Distrito] '${departamentoID}', '${provinciaID}'";
+        $distritos = DB::select($distritos);
+        return $distritos;
     }
 
 }

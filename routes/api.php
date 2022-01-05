@@ -24,10 +24,10 @@ Route::get('/', function(){
 // ================================================
 
 Route::prefix('auth')
-	->group(base_path('routes/subrutas/Interno/authRoute.php'));
+	->group(base_path('routes/subrutas/Auth/authRoute.php'));
 
 Route::prefix('usuarios')
-	->group(base_path('routes/subrutas/Interno/usuario.php'));
+	->group(base_path('routes/subrutas/Auth/usuario.php'));
 
 
 Route::prefix('roles')

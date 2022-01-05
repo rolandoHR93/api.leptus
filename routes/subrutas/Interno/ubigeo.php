@@ -9,3 +9,5 @@ use Illuminate\Support\Facades\Route;
 // --------------
 
 Route::get("/lista/{key}", [UbigeosController::class, 'lista']);
+Route::get("/getProvincias/{key}/{departamentoID}", [UbigeosController::class, 'getProvincia']);
+Route::get("/getDistritos/{key}/{departamentoID}/{provinciaID}", [UbigeosController::class, 'getDistritos']);
