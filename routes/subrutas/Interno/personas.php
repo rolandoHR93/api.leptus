@@ -14,3 +14,4 @@ Route::delete("delete/{key}/{id}",  [PersonasController::class, 'delete']);
 
 Route::post("agregarPersonaUser/{key}",  [PersonasController::class, 'agregarPersonaUser']);
 Route::delete("deletePersonaUser/{key}",  [PersonasController::class, 'deletePersonaUser']);
+Route::get("listaPersonaModulos/{key}", [PersonasController::class, 'listaPersonaModulos']);

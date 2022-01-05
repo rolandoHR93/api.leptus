@@ -89,4 +89,16 @@ class PersonasController extends Controller
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
 		}
     }
+
+    public function listaPersonaModulos(Request $request, $key)
+    {
+        try {
+            $respuesta = $this->repository->listaPersonaModulos($request->id_persona);
+
+			return response()->json(['data' => $respuesta], 200);
+		}
+		catch (Exception $e) {
+			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+		}
+    }
 }

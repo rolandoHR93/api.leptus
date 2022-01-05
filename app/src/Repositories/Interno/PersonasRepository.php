@@ -6,7 +6,7 @@ use App\Models\Interno\Persona;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use stdClass;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class PersonasRepository implements PersonasInterface
 {
@@ -90,6 +90,15 @@ class PersonasRepository implements PersonasInterface
 
         $persona->users()->detach($id_user);
         return $persona;
+    }
+
+    public function listaPersonaModulos(string $personaID)
+    {
+        $personaModulo = "exec [Listar].[Persona_modulo] ".$personaID;
+
+        $personaModulo = DB::select($personaModulo);
+
+        return $personaModulo;
     }
 
 }

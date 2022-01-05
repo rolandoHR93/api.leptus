@@ -12,5 +12,6 @@ interface PersonasInterface
 
     public function agregarPersonaUser(Request $request);
 	public function deletePersonaUser(Request $request);
+    public function listaPersonaModulos(string $personaID);
 
 }
