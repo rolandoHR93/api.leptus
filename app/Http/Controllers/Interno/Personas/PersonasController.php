@@ -96,6 +96,7 @@ class PersonasController extends Controller
         // dd($request->route('key'));
         // dd(request('key'));
         try {
+            $request->id_persona = $request->id_persona ?? 1;
             if (isset($request->id_persona)){
                 $respuesta = $this->repository->listaPersonaModulos($request->id_persona);
 			    return response()->json(['data' => $respuesta], 200);
