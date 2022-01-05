@@ -90,12 +90,18 @@ class PersonasController extends Controller
 		}
     }
 
-    public function listaPersonaModulos(Request $request, $key)
+    public function listaPersonaModulos($key,Request $request)
     {
+        //dd($request->route()->parameters());
+        // dd($request->route('key'));
+        // dd(request('key'));
         try {
-            $respuesta = $this->repository->listaPersonaModulos($request->id_persona);
+            if (isset($request->id_persona)){
+                $respuesta = $this->repository->listaPersonaModulos($request->id_persona);
+			    return response()->json(['data' => $respuesta], 200);
+            }
+			return response()->json(['error' => 'not found'], 404);
 
-			return response()->json(['data' => $respuesta], 200);
 		}
 		catch (Exception $e) {
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
