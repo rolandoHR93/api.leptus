@@ -52,7 +52,13 @@ class AuthRepository implements AuthInterface
             'apellido_paterno' => $data['apellido_paterno'],
             'apellido_materno' => $data['apellido_materno'],
             'search' => $data['nombres'].' '.$data['apellido_paterno'].' '.$data['apellido_materno'],
-			'state' => 0
+			'state' => 0,
+            'nro_doc' => $data['nro_doc'],
+            'tipo_doc_persona' => $data['tipo_doc_persona'],
+            'fecha_nacimiento' => $data['fecha_nacimiento'],
+            'sexo_id' => $data['sexo_id'],
+            'direccion' => $data['direccion'],
+            'ubigeo_id' => $data['ubigeo_id']
             // 'create_at'=> Carbon::now(),
             // 'updated_at'=> Carbon::now(),
         ]);

@@ -32,7 +32,13 @@ class PersonasRepository implements PersonasInterface
                 'search' => $request->nombres.' '.$request->apellido_paterno.' '.$request->apellido_materno,
 				'state' => 1,
 				'created_by' => 1,
-				'updated_by' => 1
+				'updated_by' => 1,
+                'nro_doc' => $request->nro_doc,
+                'tipo_doc_persona' => $request->tipo_doc_persona,
+                'fecha_nacimiento' => $request->fecha_nacimiento,
+                'sexo_id' => $request->sexo_id,
+                'direccion' => $request->direccion,
+                'ubigeo_id' => $request->ubigeo_id,
 			]
 		);
 		$persona->save();

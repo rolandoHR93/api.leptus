@@ -22,6 +22,12 @@ class Persona extends Model
         'state',
         'created_by',
         'updated_by',
+        'nro_doc',
+        'tipo_doc_persona',
+        'fecha_nacimiento',
+        'sexo_id',
+        'direccion',
+        'ubigeo_id',
     ];
 
     public function getDateFormat() {
