@@ -55,6 +55,9 @@ Route::prefix('modulos')
 Route::prefix('ubigeos')
 	->group(base_path('routes/subrutas/Interno/ubigeo.php'));
 
+Route::prefix('empresa')
+	->group(base_path('routes/subrutas/Interno/empresa.php'));
+
 // ================================================
 // **************** MODULOS EXTERNOS ****************
 // ================================================
