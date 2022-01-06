@@ -28,7 +28,6 @@ class UbigeoRepository implements UbigeoInterface
     {
         $departamentos = "exec [Listar].[Provincia] '${departamentoID}'";
         $departamentos = DB::select($departamentos);
-
         return $departamentos;
     }
 
@@ -38,5 +37,4 @@ class UbigeoRepository implements UbigeoInterface
         $distritos = DB::select($distritos);
         return $distritos;
     }
-
 }
