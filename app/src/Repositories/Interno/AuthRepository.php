@@ -2,6 +2,7 @@
 namespace App\src\Repositories\Interno;
 
 use App\Models\Interno\Persona;
+use App\Models\Interno\Empresa;
 use App\src\Interfaces\Interno\AuthInterface;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -52,13 +53,13 @@ class AuthRepository implements AuthInterface
             'apellido_paterno' => $data['apellido_paterno'],
             'apellido_materno' => $data['apellido_materno'],
             'search' => $data['nombres'].' '.$data['apellido_paterno'].' '.$data['apellido_materno'],
-			'state' => 0,
             'nro_doc' => $data['nro_doc'],
             'tipo_doc_persona' => $data['tipo_doc_persona'],
             'fecha_nacimiento' => $data['fecha_nacimiento'],
             'sexo_id' => $data['sexo_id'],
             'direccion' => $data['direccion'],
-            'ubigeo_id' => $data['ubigeo_id']
+            'ubigeo_id' => $data['ubigeo_id'],
+			'state' => 0,
             // 'create_at'=> Carbon::now(),
             // 'updated_at'=> Carbon::now(),
         ]);
@@ -67,6 +68,12 @@ class AuthRepository implements AuthInterface
             'created_by' => $user->id,
             'created_at' => Carbon::now()->format('Y-d-m H:i:s'),
             'state' => 0
+        ]);
+
+        $empresa = Empresa::create([
+            'Tipo_Documento' => $data['Tipo_Documento'],
+
+			'state' => 0,
         ]);
 
         return $user;
