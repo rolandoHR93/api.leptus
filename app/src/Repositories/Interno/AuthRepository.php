@@ -72,7 +72,13 @@ class AuthRepository implements AuthInterface
 
         $empresa = Empresa::create([
             'Tipo_Documento' => $data['Tipo_Documento'],
-
+            'NroDocumento' => $data['NroDocumento'],
+            'Ubigeo_id' => $data['Ubigeo_id'],
+            'Direccion' => $data['Direccion'],
+            'NroContacto' => $data['NroContacto'],
+            'RazonSocial' => $data['RazonSocial'],
+            'NombreComercial' => $data['NombreComercial'],
+            'created_by'  => $user->id,
 			'state' => 0,
         ]);
 
