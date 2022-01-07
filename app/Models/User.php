@@ -22,6 +22,8 @@ class User extends Authenticatable
 		'email',
 		'password',
 		'last_signIn_at',
+        'empresa_id',
+        'email_verified_at',
 		'state',
         'created_by',
         'updated_by',
