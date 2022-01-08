@@ -9,6 +9,14 @@ use Exception;
 
 class ForgotPasswordController extends Controller
 {
+    protected $repository;
+
+    public function __construct()
+    {
+        $this->middleware('verifyApiCode');
+        // $this->repository = $repository;
+    }
+
     public function forgotPassword($key)
     {
         try {
