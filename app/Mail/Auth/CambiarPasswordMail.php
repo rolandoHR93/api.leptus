@@ -24,8 +24,8 @@ class CambiarPasswordMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Test Prueba Mail')
-            ->view('emails.pages.Auth.ActivarCuenta')
+        return $this->subject('Cambio de Password - Leptus')
+            ->view('emails.pages.Auth.CambiarPassword')
             ->with([
                 'request' => $this->request,
                 'orderPrice' => 'S/. 1450 ',

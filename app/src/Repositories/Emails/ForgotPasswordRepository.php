@@ -20,6 +20,7 @@ class ForgotPasswordRepository implements ForgotPasswordInterface
 				// ->cc('larosatoro979@gmail.com')
 				->bcc('rolandoh00@gmail.com')
 				->send(new CambiarPasswordMail($request));
+        return 1;
     }
 
 
