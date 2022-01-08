@@ -35,7 +35,7 @@
     }
 
     a {
-      color: #ff6f6f;
+      color: #473FCE;
       font-weight: bold;
       text-decoration: none !important;
     }
@@ -145,7 +145,7 @@
     .user-img {
       text-align: center;
       border-radius: 100px;
-      color: #ff6f6f;
+      color: #473FCE;
       font-weight: 700;
     }
 
@@ -287,5 +287,8 @@
         display: block !important;
         padding-bottom: 20px;
       }
+    }
+    .cambiar{
+        /* #FF6F6F  => #473FCE */
     }
   </style>
