@@ -21,7 +21,7 @@ class AuthController extends Controller
 {
 
     protected $authRepository;
-    protected $emailAlertRepository;
+    protected $_emailAlertRepository;
     protected $personRepository;
 
     public function __construct(AuthRepository $authRepository
@@ -30,7 +30,7 @@ class AuthController extends Controller
     {
         $this->middleware('verifyApiCode');
         $this->authRepository = $authRepository;
-        $this->emailAlertRepository = $emailAlertRepository;
+        $this->_emailAlertRepository = $emailAlertRepository;
         $this->personRepository = $personRepository;
     }
 
@@ -47,7 +47,7 @@ class AuthController extends Controller
             $respuesta = $this->authRepository->register($request->all());
 
             // Enviar Correo
-            $this->emailAlertRepository->usuarioRegistrado($request);
+            $this->_emailAlertRepository->usuarioRegistrado($request);
 
 			// ** Crear Token de acceso Personal para el usuario
 			$token = $respuesta->createToken('auth_token')->plainTextToken;

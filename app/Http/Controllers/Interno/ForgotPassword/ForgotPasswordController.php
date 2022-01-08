@@ -4,25 +4,27 @@ namespace App\Http\Controllers\Interno\ForgotPassword;
 
 use Symfony\Component\HttpFoundation\Response;
 use App\Http\Controllers\Controller;
+use App\src\Repositories\Emails\ForgotPasswordRepository;
 use Illuminate\Http\Request;
 use Exception;
 
 class ForgotPasswordController extends Controller
 {
-    protected $repository;
+    protected $_forgotPasswordEmailRepository;
 
-    public function __construct()
+    public function __construct(ForgotPasswordRepository $_forgotPasswordEmailRepository)
     {
         $this->middleware('verifyApiCode');
-        // $this->repository = $repository;
+        $this->_forgotPasswordEmailRepository = $_forgotPasswordEmailRepository;
     }
 
     public function forgotPassword($key)
-    {
+    {   // Envia Correo Link para ingresar nueva Password
         try {
             $email = request('email');
 
-            // Envia Correo Link para ingresar nueva Password
+            $this->_forgotPasswordEmailRepository->enviarCorreoCambiarPassword(request());
+
 			return response()->json(["msg" =>  'exitos'], 200);
 
 		}catch (Exception $e) {
