@@ -23,6 +23,7 @@ class ForgotPasswordController extends Controller
             $email = request('email');
 
             // Envia Correo Link para ingresar nueva Password
+			return response()->json(["msg" =>  'exitos'], 200);
 
 		}catch (Exception $e) {
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
