@@ -11,14 +11,10 @@ class CambiarPasswordMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
+    private $request;
+
+    public function __construct($request){
+        $this->request = $request;
     }
 
     /**
@@ -28,6 +24,11 @@ class CambiarPasswordMail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->subject('Test Prueba Mail')
+            ->view('emails.pages.Auth.ActivarCuenta')
+            ->with([
+                'request' => $this->request,
+                'orderPrice' => 'S/. 1450 ',
+            ]);
     }
 }
