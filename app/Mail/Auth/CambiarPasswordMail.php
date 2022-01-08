@@ -27,11 +27,11 @@ class CambiarPasswordMail extends Mailable
         $this->request->email = 'leptus@tes.com';
         // -----------------
 
-        return $this->subject('Cambio de Password - Leptus')
+        return $this->subject('Cambio de Contraseña - Leptus')
             ->view('emails.pages.Auth.ActivarCuenta')
             ->with([
                 'request' => $this->request,
-                'orderPrice' => 'S/. 1450 ',
+                'orderPrice' => 'S/. 0000 ',
             ]);
     }
 }
