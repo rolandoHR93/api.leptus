@@ -41,7 +41,7 @@ class ForgotPasswordController extends Controller
 
             $this->_forgotPasswordEmailRepository->enviarCorreoCambiarPassword(request());
 
-			return response()->json(["msg" =>  'Correo enviado 📧'], 200);
+			return response()->json(["msg" =>  "Correo enviado  📧"], 200);
 
 		}catch (Exception $e) {
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);

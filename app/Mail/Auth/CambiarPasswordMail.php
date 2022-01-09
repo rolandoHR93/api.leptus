@@ -24,13 +24,14 @@ class CambiarPasswordMail extends Mailable
      */
     public function build()
     {
-        $this->request->email = 'leptus@tes.com';
+        $this->request->email ?? 'leptus@tes.com';
         // -----------------
 
         return $this->subject('Cambio de Contraseña - Leptus')
             ->view('emails.pages.Auth.CambiarPassword')
             ->with([
                 'request' => $this->request,
+                'email' => $this->request->email,
                 'token' => $this->request->token,
             ]);
     }

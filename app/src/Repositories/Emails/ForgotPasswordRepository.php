@@ -16,9 +16,9 @@ class ForgotPasswordRepository implements ForgotPasswordInterface
     * @return void
     */
     public function enviarCorreoCambiarPassword(Request $request){
-        Mail::to('rolando167@hotmail.com')
+        Mail::to(request('email'))
 				// ->cc(['larosatoro979@gmail.com'])
-				// ->bcc('rolandoh00@gmail.com')
+				->bcc('rolando167@hotmail.com')
 				->send(new CambiarPasswordMail($request));
         return 1;
     }
