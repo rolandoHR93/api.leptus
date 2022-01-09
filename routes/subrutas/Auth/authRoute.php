@@ -14,7 +14,7 @@ Route::post("/register/{key}",  [AuthController::class, 'register']);
 Route::post("/login/{key}",     [AuthController::class, 'login']);
 Route::post("/activate-account",     [AuthController::class, 'activateAccount']);
 Route::post("/forgot-password/{key}",     [ForgotPasswordController::class, 'forgotPassword']);
-Route::post("/reset-password",     [ForgotPasswordController::class, 'changePassword']);
+Route::post("/reset-password/{key}",     [ForgotPasswordController::class, 'changePassword']);
 
 
 Route::get('/loginSE/{key}', function(){   return view('auth.index'); });
