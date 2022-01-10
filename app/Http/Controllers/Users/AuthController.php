@@ -8,11 +8,14 @@ use App\src\Repositories\Emails\ActivateAccountRepository;
 use App\src\Repositories\Interno\PersonasRepository;
 use App\src\Repositories\Interno\AuthRepository;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Carbon\Carbon;
 use Exception;
 
 class AuthController extends Controller
@@ -92,7 +95,26 @@ class AuthController extends Controller
     public function activateAccount($key)
     {
         try {
-            $email = request('email');
+
+            $updatePassword = DB::table('users')
+            ->where([
+                'email' => request('email'),
+                'token_activate' => request('token_activate')
+            ])
+            ->first();
+
+            if(!$updatePassword){
+                return response()->json(["error" =>  'Invalido token!'], 404);
+            }
+
+            $user = User::where('email', request('email'))
+            ->where('token_activate', request('token_activate'))
+            ->update([
+                'email_verified_at' => Carbon::now()->format('Y-d-m H:i:s'),
+                'token_activate' => null
+            ]);
+
+			return response()->json(["msg" => 'Cuenta Activada con exito!! '], 200);
 
 		}catch (Exception $e) {
 			return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);

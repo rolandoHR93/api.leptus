@@ -24,6 +24,7 @@ class User extends Authenticatable
 		'last_signIn_at',
         'empresa_id',
         'email_verified_at',
+		'token_activate',
 		'state',
         'created_by',
         'updated_by',

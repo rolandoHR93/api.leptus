@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 Route::get("/getRegisterHome/{key}",  [AuthController::class, 'getRegisterHome']);
 Route::post("/register/{key}",  [AuthController::class, 'register']);
 Route::post("/login/{key}",     [AuthController::class, 'login']);
-Route::post("/activate-account",     [AuthController::class, 'activateAccount']);
+Route::post("/activate-account/{key}",     [AuthController::class, 'activateAccount']);
 Route::post("/forgot-password/{key}",     [ForgotPasswordController::class, 'forgotPassword']);
 Route::post("/reset-password/{key}",     [ForgotPasswordController::class, 'changePassword']);
 
