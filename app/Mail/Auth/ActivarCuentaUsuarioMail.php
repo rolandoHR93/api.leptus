@@ -31,7 +31,7 @@ class ActivarCuentaUsuarioMail extends Mailable
             ->with([
                 'request' => $this->request,
                 'email' => $this->request->email,
-                'tokenActivacion' => $this->request->tokenActivacion,
+                'token_activate' => $this->request->token_activate,
             ]);
     }
 }

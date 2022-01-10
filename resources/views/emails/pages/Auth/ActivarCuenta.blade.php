@@ -81,11 +81,11 @@
                                     <td class="button">
                                     <div><!--[if mso]>
                                         <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word"
-                                        href="https://leptus-peru.netlify.app/activate-account/{{$email}}/{{$tokenActivacion}}" style="height:45px;v-text-anchor:middle;width:155px;" arcsize="15%" strokecolor="#ffffff" fillcolor="#473FCE">
+                                        href="https://leptus-peru.netlify.app/activate-account/{{$email}}/{{$token_activate}}" style="height:45px;v-text-anchor:middle;width:155px;" arcsize="15%" strokecolor="#ffffff" fillcolor="#473FCE">
                                         <w:anchorlock/>
                                         <center style="color:#ffffff;font-family:Helvetica, Arial, sans-serif;font-size:14px;font-weight:regular;">Cambiar Contraseña</center>
                                         </v:roundrect>
-                                    <![endif]--><a href="https://leptus-peru.netlify.app/activate-account/{{$email}}/{{$tokenActivacion}}"
+                                    <![endif]--><a href="https://leptus-peru.netlify.app/activate-account/{{$email}}/{{$token_activate}}"
                                     style="background-color:#473FCE;border-radius:5px;color:#ffffff;display:inline-block;font-family:'Cabin', Helvetica, Arial, sans-serif;font-size:14px;font-weight:regular;line-height:45px;text-align:center;text-decoration:none;width:155px;-webkit-text-size-adjust:none;mso-hide:all;">Cambiar Contraseña</a></div>
                                     </td>
                                 </tr>

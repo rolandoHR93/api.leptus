@@ -48,8 +48,8 @@ class AuthController extends Controller
             $respuesta = $this->authRepository->register($request->all());
 
             // Enviar Correo
-            $tokenActivacion = Str::random(64);
-            request()->merge([ 'tokenActivacion' => $tokenActivacion ]);
+            $token_activate = Str::random(64);
+            request()->merge([ 'token_activate' => $token_activate ]);
             // $this->_emailAlertRepository->usuarioRegistrado($request);
 
 			// ** Crear Token de acceso Personal para el usuario
@@ -58,7 +58,7 @@ class AuthController extends Controller
 			return response()->json([
 				'access_token' => $token,
 				'token_type' => 'Bearer',
-                'tokenActivacion' => $tokenActivacion,
+                'token_activate' => $token_activate,
 				'user' => $respuesta
 			]);
 
@@ -99,7 +99,8 @@ class AuthController extends Controller
             $updatePassword = DB::table('users')
             ->where([
                 'email' => request('email'),
-                'token_activate' => request('token_activate')
+                'token_activate' => request('token_activate'),
+                'email_verified_at' => null
             ])
             ->first();
 
