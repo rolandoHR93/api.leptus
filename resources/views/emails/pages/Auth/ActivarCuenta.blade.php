@@ -50,7 +50,7 @@
                     </tr>
                     <tr>
                         <td class="free-text">
-                        <span><a href=""> {{ $request->email }}</a></span> se ha registrado correctamente  {{ $orderPrice }}
+                        <span><a href=""> {{ $request->email }}</a></span> se ha registrado correctamente.
                         </td>
                     </tr>
                     <tr>
@@ -65,7 +65,7 @@
                                         <tr>
                                         <td class="user-img">
                                             <a href=""><img class="user-img" src="http://s3.amazonaws.com/swu-filepicker/Ei7o4zRgT561k4rLfzTz_profile_pic.jpg" alt="user img" /></a>
-                                            <br /><a href="">@Lept</a>
+                                            <br /><a href="">{{$email}}</a>
                                         </td>
                                         </tr>
                                         <tr>
@@ -80,12 +80,13 @@
                                 <tr>
                                     <td class="button">
                                     <div><!--[if mso]>
-                                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://leptus-peru.netlify.app/sign-in" style="height:45px;v-text-anchor:middle;width:155px;" arcsize="15%" strokecolor="#ffffff" fillcolor="#473FCE">
+                                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word"
+                                        href="https://leptus-peru.netlify.app/activate-account/{{$email}}/{{$tokenActivacion}}" style="height:45px;v-text-anchor:middle;width:155px;" arcsize="15%" strokecolor="#ffffff" fillcolor="#473FCE">
                                         <w:anchorlock/>
-                                        <center style="color:#ffffff;font-family:Helvetica, Arial, sans-serif;font-size:14px;font-weight:regular;">Activar Cuenta</center>
+                                        <center style="color:#ffffff;font-family:Helvetica, Arial, sans-serif;font-size:14px;font-weight:regular;">Cambiar Contraseña</center>
                                         </v:roundrect>
-                                    <![endif]--><a href="https://leptus-peru.netlify.app/sign-in"
-                                    style="background-color:#473FCE;border-radius:5px;color:#ffffff;display:inline-block;font-family:'Cabin', Helvetica, Arial, sans-serif;font-size:14px;font-weight:regular;line-height:45px;text-align:center;text-decoration:none;width:155px;-webkit-text-size-adjust:none;mso-hide:all;">Activar Cuenta</a></div>
+                                    <![endif]--><a href="https://leptus-peru.netlify.app/activate-account/{{$email}}/{{$tokenActivacion}}"
+                                    style="background-color:#473FCE;border-radius:5px;color:#ffffff;display:inline-block;font-family:'Cabin', Helvetica, Arial, sans-serif;font-size:14px;font-weight:regular;line-height:45px;text-align:center;text-decoration:none;width:155px;-webkit-text-size-adjust:none;mso-hide:all;">Cambiar Contraseña</a></div>
                                     </td>
                                 </tr>
                                 </table>

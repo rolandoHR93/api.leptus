@@ -4,10 +4,7 @@ use Illuminate\Http\Request;
 
 interface ActivateAccountInterface
 {
-    public function search(Request $request);
-    public function lista(string $page);
-    public function create(Request $request);
-    public function update(Request $request, string $id);
-    public function delete(string $id);
+    public function usuarioRegistrado(Request $request);
+
 
 }

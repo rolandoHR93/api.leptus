@@ -4,18 +4,16 @@ namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
 use App\Mail\Auth\ActivarCuentaUsuarioMail;
+use App\src\Repositories\Emails\ActivateAccountRepository;
 use App\src\Repositories\Interno\PersonasRepository;
-use App\src\Repositories\Emails\AlertRepository;
 use App\src\Repositories\Interno\AuthRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Exception;
-use Illuminate\Support\Facades\Artisan;
-use Symfony\Component\Process\Process;
-use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class AuthController extends Controller
 {
@@ -25,7 +23,7 @@ class AuthController extends Controller
     protected $personRepository;
 
     public function __construct(AuthRepository $authRepository
-                        , AlertRepository $emailAlertRepository
+                        , ActivateAccountRepository $emailAlertRepository
                         , PersonasRepository $personRepository)
     {
         $this->middleware('verifyApiCode');
@@ -47,14 +45,17 @@ class AuthController extends Controller
             $respuesta = $this->authRepository->register($request->all());
 
             // Enviar Correo
+            $tokenActivacion = Str::random(64);
+            request()->merge([ 'tokenActivacion' => $tokenActivacion ]);
             // $this->_emailAlertRepository->usuarioRegistrado($request);
 
 			// ** Crear Token de acceso Personal para el usuario
-			$token = $respuesta->createToken('auth_token')->plainTextToken;
+			$token = $respuesta->createToken('auth_token')->plainTextToken ?? null;
 
 			return response()->json([
 				'access_token' => $token,
 				'token_type' => 'Bearer',
+                'tokenActivacion' => $tokenActivacion,
 				'user' => $respuesta
 			]);
 

@@ -24,13 +24,14 @@ class ActivarCuentaUsuarioMail extends Mailable
      */
     public function build()
     {
+        $this->request->email ?? 'leptus@tes.com';
 
-
-        return $this->subject('Test Prueba Mail')
+        return $this->subject('Activar Cuenta - Leptus')
             ->view('emails.pages.Auth.ActivarCuenta')
             ->with([
                 'request' => $this->request,
-                'orderPrice' => 'S/. 1450 ',
+                'email' => $this->request->email,
+                'tokenActivacion' => $this->request->tokenActivacion,
             ]);
     }
 }

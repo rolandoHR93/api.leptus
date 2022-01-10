@@ -24,7 +24,7 @@ class CambiarPasswordMail extends Mailable
      */
     public function build()
     {
-        $this->request->email ?? 'leptus@tes.com';
+        $this->request->email ?? 'rolando167@hotmail.com';
         // -----------------
 
         return $this->subject('Cambio de Contraseña - Leptus')
