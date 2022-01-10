@@ -45,11 +45,12 @@ class AuthController extends Controller
 			// 	'password' => 'required|string|min:6',
 			// ]);
 
+            $token_activate = Str::random(64);
+            $request->token_activate =  $token_activate;
+
             $respuesta = $this->authRepository->register($request->all());
 
             // Enviar Correo
-            $token_activate = Str::random(64);
-            request()->merge([ 'token_activate' => $token_activate ]);
             // $this->_emailAlertRepository->usuarioRegistrado($request);
 
 			// ** Crear Token de acceso Personal para el usuario
