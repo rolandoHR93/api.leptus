@@ -58,7 +58,7 @@ class AuthRepository implements AuthInterface
             'fecha_nacimiento' => $data['persona']['fecha_nacimiento'],
             'sexo_id' => $data['persona']['sexo'],
             'direccion' => $data['persona']['direccion'],
-            'ubigeo_id' => $data['persona']['departamento'].$data['persona']['provincia'],
+            'ubigeo_id' => $data['persona']['distrito'],
             'created_by' => $user->id,
 			'state' => 0,
             // 'create_at'=> Carbon::now(),
@@ -74,7 +74,7 @@ class AuthRepository implements AuthInterface
         $empresa = Empresa::create([
             'Tipo_Documento' => $data['empresa']['tipo_documento'],
             'NroDocumento' => $data['empresa']['nro_documento'],
-            'Ubigeo_id' => $data['empresa']['departamento'].$data['empresa']['provincia'].$data['empresa']['distrito'],
+            'Ubigeo_id' => $data['empresa']['distrito'],
             'Direccion' => $data['empresa']['direccion'],
             'NroContacto' => $data['empresa']['nro_contacto'],
             'RazonSocial' => $data['empresa']['razon_social'],
