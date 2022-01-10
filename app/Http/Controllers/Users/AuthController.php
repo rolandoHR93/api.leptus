@@ -38,16 +38,16 @@ class AuthController extends Controller
 
 		try {
 
-			$validateData = $request->validate([
-				'nombres' => 'required|string|max:255',
-				'email' => 'required|string|email|max:255|unique:users',
-				'password' => 'required|string|min:6',
-			]);
+			// $validateData = $request->validate([
+			// 	'nombres' => 'required|string|max:255',
+			// 	'email' => 'required|string|email|max:255|unique:users',
+			// 	'password' => 'required|string|min:6',
+			// ]);
 
             $respuesta = $this->authRepository->register($request->all());
 
             // Enviar Correo
-            $this->_emailAlertRepository->usuarioRegistrado($request);
+            // $this->_emailAlertRepository->usuarioRegistrado($request);
 
 			// ** Crear Token de acceso Personal para el usuario
 			$token = $respuesta->createToken('auth_token')->plainTextToken;

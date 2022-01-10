@@ -40,25 +40,25 @@ class AuthRepository implements AuthInterface
     public function register(array $data){
 
         $user = User::create([
-            'nombres'  => $data['nombres'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'nombres'  => $data['persona']['nombres'],
+            'email' => $data['usuario']['email'],
+            'password' => Hash::make($data['usuario']['password']),
             'state' => 0
             // 'create_at'=> Carbon::now(),
             // 'updated_at'=> Carbon::now(),
         ]);
 
         $persona = Persona::create([
-            'nombres' => $data['nombres'],
-            'apellido_paterno' => $data['apellido_paterno'],
-            'apellido_materno' => $data['apellido_materno'],
-            'search' => $data['nombres'].' '.$data['apellido_paterno'].' '.$data['apellido_materno'],
-            'nro_doc' => $data['nro_doc'],
-            'tipo_doc_persona' => $data['tipo_doc_persona'],
-            'fecha_nacimiento' => $data['fecha_nacimiento'],
-            'sexo_id' => $data['sexo_id'],
-            'direccion' => $data['direccion'],
-            'ubigeo_id' => $data['ubigeo_id'],
+            'nombres' => $data['persona']['nombres'],
+            'apellido_paterno' => $data['persona']['apellido_paterno'],
+            'apellido_materno' => $data['persona']['apellido_materno'],
+            'search' => $data['persona']['nombres'].' '.$data['persona']['apellido_paterno'].' '.$data['persona']['apellido_materno'],
+            'nro_doc' => $data['persona']['nro_doc'],
+            'tipo_doc_persona' => $data['persona']['tipo_doc_persona'],
+            'fecha_nacimiento' => $data['persona']['fecha_nacimiento'],
+            'sexo_id' => $data['persona']['sexo_id'],
+            'direccion' => $data['persona']['direccion'],
+            'ubigeo_id' => $data['persona']['ubigeo_id'],
 			'state' => 0,
             // 'create_at'=> Carbon::now(),
             // 'updated_at'=> Carbon::now(),
@@ -71,13 +71,13 @@ class AuthRepository implements AuthInterface
         ]);
 
         $empresa = Empresa::create([
-            'Tipo_Documento' => $data['Tipo_Documento'],
-            'NroDocumento' => $data['NroDocumento'],
-            'Ubigeo_id' => $data['Ubigeo_id'],
-            'Direccion' => $data['Direccion'],
-            'NroContacto' => $data['NroContacto'],
-            'RazonSocial' => $data['RazonSocial'],
-            'NombreComercial' => $data['NombreComercial'],
+            'Tipo_Documento' => $data['empresa']['Tipo_Documento'],
+            'NroDocumento' => $data['empresa']['NroDocumento'],
+            'Ubigeo_id' => $data['empresa']['Ubigeo_id'],
+            'Direccion' => $data['empresa']['Direccion'],
+            'NroContacto' => $data['empresa']['NroContacto'],
+            'RazonSocial' => $data['empresa']['RazonSocial'],
+            'NombreComercial' => $data['empresa']['NombreComercial'],
             'created_by'  => $user->id,
 			'state' => 0,
         ]);
