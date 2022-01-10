@@ -59,6 +59,7 @@ class AuthRepository implements AuthInterface
             'sexo_id' => $data['persona']['sexo'],
             'direccion' => $data['persona']['direccion'],
             'ubigeo_id' => $data['persona']['departamento'].$data['persona']['provincia'],
+            'created_by' => $user->id,
 			'state' => 0,
             // 'create_at'=> Carbon::now(),
             // 'updated_at'=> Carbon::now(),
