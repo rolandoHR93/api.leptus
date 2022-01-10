@@ -83,6 +83,10 @@ class AuthRepository implements AuthInterface
 			'state' => 0,
         ]);
 
+        $user->update([
+			'empresa_id' => $empresa->id,
+		]);
+
         return $user;
     }
 
