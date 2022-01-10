@@ -47,7 +47,6 @@ class AuthController extends Controller
 
             $token_activate = Str::random(64);
             $request->token_activate =  $token_activate;
-
             $respuesta = $this->authRepository->register($request->all());
 
             // Enviar Correo

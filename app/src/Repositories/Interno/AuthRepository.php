@@ -43,7 +43,7 @@ class AuthRepository implements AuthInterface
             'nombres'  => $data['persona']['nombres'],
             'email' => $data['usuario']['email'],
             'password' => Hash::make($data['usuario']['password']),
-            'token_activate' => $data['token_activate'],
+            'token_activate' => '4554545',
             'state' => 0
             // 'create_at'=> Carbon::now(),
             // 'updated_at'=> Carbon::now(),
