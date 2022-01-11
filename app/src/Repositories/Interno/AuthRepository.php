@@ -93,8 +93,8 @@ class AuthRepository implements AuthInterface
 
     public function login(object $data){
 
-
-        $user = User::where('email', $data['email'])->firstOrFail();
+        $user = User::where('email', $data['email'])
+                    ->whereNotNull('email_verified_at')->firstOrFail();
 
         return $user;
     }
