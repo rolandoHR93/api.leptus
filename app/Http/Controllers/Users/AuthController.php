@@ -105,7 +105,7 @@ class AuthController extends Controller
             ->first();
 
             if(!$updatePassword){
-                return response()->json(["error" =>  'Invalido token!'], 404);
+                return response()->json(["error" =>  'Token Invalido!'], 404);
             }
 
             $user = User::where('email', request('email'))
