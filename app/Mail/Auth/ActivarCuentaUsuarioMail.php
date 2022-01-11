@@ -24,7 +24,7 @@ class ActivarCuentaUsuarioMail extends Mailable
      */
     public function build()
     {
-        $email = $this->request->email ?? 'leptus@tes.com';
+        $email = $this->request['usuario']['email'] ?? 'leptus1@tes.com';
 
         return $this->subject('Activar Cuenta - Leptus')
             ->view('emails.pages.Auth.ActivarCuenta')
