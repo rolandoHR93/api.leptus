@@ -82,6 +82,10 @@ class AuthController extends Controller
 
 			$token = $respuesta->createToken('auth_token')->plainTextToken;
 
+            $respuesta->update([
+                'last_signIn_at' => Carbon::now()->format('Y-d-m H:i:s')
+            ]);
+
 			return response()->json([
 				'access_token' => $token,
 				'token_type' => 'Bearer',
