@@ -25,6 +25,8 @@ class User extends Authenticatable
         'empresa_id',
         'email_verified_at',
 		'token_activate',
+		'avatar',
+		'status',
 		'state',
         'created_by',
         'updated_by',
