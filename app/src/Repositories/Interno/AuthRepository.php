@@ -44,6 +44,7 @@ class AuthRepository implements AuthInterface
             'email' => $data['usuario']['email'],
             'password' => Hash::make($data['usuario']['password']),
             'token_activate' => $data['token_activate'],
+            'avatar' => 'http://api.leptus.pe/app/images/avatar/default_1.png',
             'state' => 0
             // 'create_at'=> Carbon::now(),
             // 'updated_at'=> Carbon::now(),

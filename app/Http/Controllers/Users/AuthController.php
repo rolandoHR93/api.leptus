@@ -117,7 +117,6 @@ class AuthController extends Controller
             ->update([
                 'email_verified_at' => Carbon::now()->format('Y-d-m H:i:s'),
                 'token_activate' => null,
-                'avatar' => 'http://api.leptus.pe/app/images/avatar/default.png',
             ]);
 
 			return response()->json(["msg" => 'Cuenta Activada con exito!! '], 200);
